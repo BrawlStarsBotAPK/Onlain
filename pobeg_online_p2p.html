@@ -83,7 +83,7 @@ label{display:block;width:min(70vw,320px)}input[type=range]{width:100%}
 <div id="onl" class="s hid"><h2>🌐 ОНЛАЙН</h2><button id="o_plus" class="b" style="font-size:40px;min-width:3em">＋</button><div id="o_opts" class="hid" style="display:flex;flex-direction:column;gap:10px"><button id="o_cr" class="b">СОЗДАТЬ СЕРВЕР</button><button id="o_jn" class="b">ПОДКЛЮЧИТЬСЯ ПО КОДУ</button></div><div id="o_jf" class="hid" style="display:flex;gap:8px"><input id="o_in" maxlength="5" placeholder="КОД" autocomplete="off" autocapitalize="characters" spellcheck="false" style="user-select:text;-webkit-user-select:text;touch-action:auto;font:inherit;font-size:24px;text-align:center;letter-spacing:.3em;padding:.4em;width:min(60vw,220px);background:var(--pn);color:var(--fg);border:1px solid var(--ac)"><button id="o_go" class="b" style="min-width:0">ВОЙТИ</button></div><div id="o_msg" style="max-width:80vw"></div><button id="o_bk" class="b">НАЗАД</button></div>
 <div id="lob" class="s hid"><h2>СЕРВЕР</h2><div><span id="l_code" style="font-size:40px;letter-spacing:.3em;border:1px solid var(--ac);padding:6px 16px;background:#000"></span> <button id="l_cp" class="ib">📋</button></div><div id="l_n"></div><div id="l_m" class="hid" style="display:flex;flex-wrap:wrap;justify-content:center;gap:6px"></div><div id="l_mt" style="max-width:80vw"></div><div id="l_msg"></div><button id="l_st" class="b hid">НАЧАТЬ</button><button id="l_bk" class="b">ВЫЙТИ</button></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/peerjs@1.5.4/dist/peerjs.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mqtt@5.10.1/dist/mqtt.min.js"></script>
 <script>
 const $=i=>document.getElementById(i),V=THREE.Vector3,PI=Math.PI,touch='ontouchstart'in window||navigator.maxTouchPoints>0;
 if(touch)document.body.classList.add('t');
@@ -400,20 +400,34 @@ function lobUI(){const h=NET.host;$('l_code').textContent=NET.code;$('l_m').clas
 $('l_m').innerHTML=MODES.map(([k,n])=>`<button class="d${k==NET.mode?' on':''}" data-m="${k}">${n}</button>`).join('');
 $('l_mt').textContent=h?'':'Режим: '+MT[NET.mode][0]}
 $('l_m').onclick=e=>{const m=e.target.dataset&&e.target.dataset.m;if(!m||!NET.room)return;NET.mode=+m;NET.room.presence({mode:NET.mode});lobUI()};
-function mkNet(code,host){return new Promise((ok,no)=>{
-if(typeof Peer=='undefined'){no('lib');return}
-let my={},remP=null,h=null,conn=null,done=0;const id='pobegdom-'+code.toLowerCase(),CF={config:{iceServers:[{urls:'stun:stun.l.google.com:19302'},{urls:'stun:global.stun.twilio.com:3478'},{urls:['turn:openrelay.metered.ca:80','turn:openrelay.metered.ca:443','turn:openrelay.metered.ca:443?transport=tcp'],username:'openrelayproject',credential:'openrelayproject'}]},debug:0},pr=host?new Peer(id,CF):new Peer(CF);
+const BR=['wss://broker.emqx.io:8084/mqtt','wss://broker.hivemq.com:8884/mqtt','wss://test.mosquitto.org:8081'];
+function mkNet(code,host){return new Promise(async(ok,no)=>{
+if(typeof mqtt=='undefined'){no('lib');return}
+const sid=Math.random().toString(36).slice(2,8),base='pobegdom/'+code.toLowerCase()+'/',mine=base+(host?'h':'g'),theirs=base+(host?'g':'h');
+let my={},remP=null,remAt=0,hd=null,cl=null,locked=null,coll=0,ls=0,ints=[];
 const list=()=>[{kind:'viewer',isMe:true,presence:my},...(remP?[{kind:'viewer',isMe:false,presence:remP}]:[])];
-const emit=(l=[])=>h&&h({peers:list(),joined:[],left:l,updated:[]});
-const net={presence(p){for(const k in p){if(p[k]===null)delete my[k];else my[k]=p[k]}if(conn&&conn.open)try{conn.send(my)}catch(e){}return Promise.resolve()},
-peers:list,onPeers(f){h=f;setTimeout(()=>emit(),0);return()=>{}},leave(){try{conn&&conn.close()}catch(e){}try{pr.destroy()}catch(e){}return Promise.resolve()}};
-const wire=c=>{conn=c;c.on('data',d=>{remP=d;emit()});c.on('close',()=>{if(conn===c){remP=null;emit([{}])}});c.on('error',e=>{if(!done){done=1;no('conn:'+(e&&e.type||e))}});if(c.open)c.send(my);else c.on('open',()=>{c.send(my);if(!done){done=1;ok(net)}})};
-pr.on('error',e=>{if(!done){done=1;no(e.type||'err')}});
-setTimeout(()=>{if(!done){done=1;no('timeout')}},20000);pr.on('disconnected',()=>{try{pr.reconnect()}catch(e){}});
-if(host){pr.on('open',()=>{done=1;ok(net)});pr.on('connection',c=>{if(conn&&conn.open){c.on('open',()=>c.close());return}wire(c);c.on('open',()=>c.send(my))})}
-else pr.on('open',()=>wire(pr.connect(id,{reliable:true})))})}
+const emit=(l=[])=>hd&&hd({peers:list(),joined:[],left:l,updated:[]});
+const send=f=>{if(!cl||!cl.connected)return;const n=Date.now();if(!f&&n-ls<40)return;ls=n;try{cl.publish(mine,JSON.stringify({s:sid,p:my}))}catch(e){}};
+const net={presence(p){for(const k in p){if(p[k]===null)delete my[k];else my[k]=p[k]}send();return Promise.resolve()},peers:list,
+onPeers(f){hd=f;setTimeout(()=>emit(),0);return()=>{}},leave(){ints.forEach(clearInterval);try{cl&&cl.end(true)}catch(e){}return Promise.resolve()}};
+const conn=url=>new Promise(r=>{let d=0;const c=mqtt.connect(url,{connectTimeout:5000,reconnectPeriod:2000,clean:true}),f=v=>{if(!d){d=1;if(!v)try{c.end(true)}catch(e){}r(v?c:null)}};c.on('connect',()=>f(1));c.on('error',()=>f(0));c.on('close',()=>f(0));setTimeout(()=>f(0),6000)});
+const onMsg=(t,m)=>{let d;try{d=JSON.parse(m.toString())}catch(e){return}if(!d||!d.p)return;
+if(host&&t==base+'h'&&d.s!==sid){coll=1;return}if(t!==theirs)return;
+if(host){if(locked&&locked!==d.s)return;locked=d.s}remP=d.p;remAt=Date.now();emit()};
+const live=()=>{ints.push(setInterval(()=>send(1),1000),setInterval(()=>{if(remP&&Date.now()-remAt>5000){remP=null;locked=null;emit([{}])}},1000))};
+let any=0;
+if(host){for(const u of BR){cl=await conn(u);if(cl)break}
+if(!cl){no('network');return}
+cl.on('message',onMsg);cl.subscribe([base+'h',base+'g']);await new Promise(r=>setTimeout(r,1800));
+if(coll){try{cl.end(true)}catch(e){}no('unavailable-id');return}
+send(1);live();ok(net);return}
+for(const u of BR){const c=await conn(u);if(!c)continue;any=1;cl=c;cl.on('message',onMsg);cl.subscribe(theirs);
+for(let i=0;i<35&&!remP;i++)await new Promise(r=>setTimeout(r,100));
+if(remP){send(1);live();ok(net);return}
+try{c.end(true)}catch(e){}cl=null}
+no(any?'peer-unavailable':'network')})}
 async function netJoin(code,host){
-try{NET.room=await mkNet(code,host)}catch(e){omsg(e=='peer-unavailable'?'❌ Сервер с таким кодом не найден':e=='unavailable-id'?'❌ Код занят, попробуй ещё раз':e=='lib'?'❌ Не загрузилась библиотека онлайна (нужен интернет)':e=='timeout'?'❌ Нет ответа от сервера за 20 сек (проверь код, интернет; лучше Wi-Fi у обоих; хозяин должен оставаться в лобби)':'❌ Ошибка подключения: '+e);return}
+try{NET.room=await mkNet(code,host)}catch(e){omsg(e=='peer-unavailable'?'❌ Сервер с таким кодом не найден':e=='unavailable-id'?'❌ Код занят, попробуй ещё раз':e=='network'?'❌ Ошибка сети: ни один сервер связи не открылся. Попробуй другую сеть (Wi-Fi или мобильный) или VPN, отключи блокировщик рекламы':e=='lib'?'❌ Не загрузилась библиотека онлайна (нужен интернет, попробуй VPN)':e=='timeout'?'❌ Нет ответа от сервера за 20 сек (проверь код, интернет; лучше Wi-Fi у обоих; хозяин должен оставаться в лобби)':'❌ Ошибка подключения: '+e);return}
 NET.code=code;NET.host=host?1:0;NET.started=0;NET.rem=null;NET.on=0;
 NET.room.presence(host?{host:1,mode:NET.mode}:{host:0});NET.room.onPeers(onPeers);
 hide('onl');show('lob');lmsg('');lobUI()}
