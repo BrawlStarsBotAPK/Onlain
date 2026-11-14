@@ -70,7 +70,7 @@ label{display:block;width:min(70vw,320px)}input[type=range]{width:100%}
 </div>
 <div id="hv" class="hid"></div>
 <div id="msg" class="hid"></div>
-<div id="menu" class="s"><button id="f2" class="ib tr">⛶</button><h1>ПОБЕГ ИЗ ДОМА</h1><div id="df"></div><div id="ec"></div><button id="bp" class="b">ИГРАТЬ</button><button id="bpr" class="b">🎟 ПРОМОКОД</button><div style="position:absolute;bottom:3px;right:8px;font-size:11px;opacity:.5">онлайн v8</div><button id="bon" class="b">🌐 ОНЛАЙН</button><button id="bs" class="b">НАСТРОЙКИ</button><button id="bx" class="b">ВЫХОД</button></div>
+<div id="menu" class="s"><button id="f2" class="ib tr">⛶</button><h1>ПОБЕГ ИЗ ДОМА</h1><div id="df"></div><div id="ec"></div><button id="bp" class="b">ИГРАТЬ</button><button id="bpr" class="b">🎟 ПРОМОКОД</button><div style="position:absolute;bottom:3px;right:8px;font-size:11px;opacity:.5">онлайн v9</div><button id="bon" class="b">🌐 ОНЛАЙН</button><button id="bs" class="b">НАСТРОЙКИ</button><button id="bx" class="b">ВЫХОД</button></div>
 <div id="load" class="s hid"><h2>Загрузка...</h2><div id="pbar"><i id="bar"></i></div></div>
 <div id="pause" class="s hid"><h2>ПАУЗА</h2><button id="rs" class="b">ПРОДОЛЖИТЬ</button><button id="ps" class="b">НАСТРОЙКИ</button><button id="pm" class="b">В МЕНЮ</button></div>
 <div id="set" class="s hid"><h2>НАСТРОЙКИ</h2><label>Громкость<input id="vl" type="range" value="70"></label><label>Чувствительность<input id="sn" type="range" min="10" value="50"></label><button id="sb" class="b">НАЗАД</button></div>
@@ -263,13 +263,15 @@ function caught(){if(st=='caught'||CH.god)return;st='caught';ct=0;hide('hint');h
 function gTick(dt){
 const d=Math.hypot(P.x-g.x,P.z-g.z),hid=st=='hide';
 if(!DF.gr||CH.fz)return;
-if(g.st=='sleep'){if(cm>=DF.wake||(loud&&d<3.5*DF.hear))wake();return}
+const FR=window.ONL&&NET.mode==3&&NET.host&&NET.rem&&NET.rem.x!=null&&NET.rem.rn===NET.rn?NET.rem:null,fd=FR?Math.hypot(FR.x-g.x,FR.z-g.z):99,fx=FR&&FR.ld&&FR.py!=0;
+if(g.st=='sleep'){if(cm>=DF.wake||(loud&&d<3.5*DF.hear))wake();else if(fx&&fd<3.5*DF.hear){NET.wby='g';wake()}return}
 if(g.st=='rise'){g.t+=dt;const k=Math.min(1,g.t/1.8);G.rotation.x=-PI/2*(1-k);G.position.y=.3*(1-k);if(k>=1){g.st='patrol';g.w=.5;g.path=[]}return}
 const hr=Math.max(0,(cm-60)/60),om=DF.sp*(g.old?.4:1),pat=(1.7+hr*.3)*om,ch=(3.2+hr*.35)*om;
 gdoors();const se=sees();
 if(g.st!='chase'&&se){g.st='chase';g.stuck=0;g.pf=0;snd.growl()}
 if(g.st=='patrol'){
 if(loud&&!hid&&d<9*DF.hear){g.st='search';g.ls=[P.x,P.z];g.path=route(near(g.x,g.z),near(P.x,P.z));g.t=0}
+else if(fx&&fd<9*DF.hear){g.st='search';g.ls=[FR.x,FR.z];g.path=route(near(g.x,g.z),near(FR.x,FR.z));g.t=0}
 else if(g.path.length)follow(pat,dt);
 else{g.w-=dt;if(g.w<=0){g.path=route(near(g.x,g.z),Math.random()<.55?near(P.x,P.z):[0,2,5,8,11,12][Math.random()*6|0]);g.w=1.5+Math.random()*2}}
 }else if(g.st=='chase'){
@@ -369,11 +371,11 @@ $('pinp').addEventListener('keydown',e=>{if(e.key=='Enter')applyPromo()});
 const rad=.28,hit=(x,z)=>{if(CH.nc)return 0;for(const c of cols)if(c.on&&x>c.a-rad&&x<c.b+rad&&z>c.c-rad&&z<c.d+rad)return 1};
 function mv(dx,dz){if(!hit(P.x+dx,P.z))P.x+=dx;if(!hit(P.x,P.z+dz))P.z+=dz}
 function update(dt){
-afk+=dt;if(afk>60&&!CH.na){ending(4);return}
+afk+=dt;if(afk>60&&!CH.na&&!window.ONL){ending(4);return}
 const f=(K.KeyW||K.ArrowUp?1:0)-(K.KeyS||K.ArrowDown?1:0),r=(K.KeyD||K.ArrowRight?1:0)-(K.KeyA||K.ArrowLeft?1:0);
 let mx=r+jx,mz=jy-f;const n=Math.hypot(mx,mz),l=Math.min(1,n);if(n){mx/=n;mz/=n}
 const run=K.ShiftLeft||K.ShiftRight||jr,sp=(run?4.6:2.6)*l*(CH.sp?2:1),s=Math.sin(yaw),c=Math.cos(yaw);
-mv((c*mx+s*mz)*sp*dt,(c*mz-s*mx)*sp*dt);loud=run&&l>.3&&!CH.inv;if(DF.gr&&g.st=='sleep'){if(P.x<13&&P.z>8.1){if(!g.td)tapStart()}else g.td=0}
+mv((c*mx+s*mz)*sp*dt,(c*mz-s*mx)*sp*dt);loud=run&&l>.3&&!CH.inv;if(loud)LDF=performance.now();if(DF.gr&&g.st=='sleep'){if(P.x<13&&P.z>8.1){if(!g.td)tapStart()}else g.td=0}
 if(jmp&&py<=1.601)vy=4.3;jmp=0;vy-=12*dt;py+=vy*dt;if(py<1.6){py=1.6;vy=0}
 let by=0;if(l>0&&py<=1.601){dist+=sp*dt;bob+=sp*dt*2.4;by=Math.sin(bob)*.04;if(dist>(run?1.9:1.3)){dist=0;snd.step()}}
 P.y=py+by;cam.rotation.set(pit,yaw,0,'YXZ');
@@ -413,7 +415,7 @@ const LT='pobegdom/list/'+code.toLowerCase(),WL=host?{topic:LT,payload:'',retain
 let my=host?{host:1}:{host:0},remP=null,remAt=0,hd=null,locked=null,coll=0,ls=0,seq=0,seen={},ints=[],cls=[],dead=0,lt=Date.now();
 const list=()=>[{kind:'viewer',isMe:true,presence:my},...(remP?[{kind:'viewer',isMe:false,presence:remP}]:[])];
 const emit=(l=[])=>hd&&hd({peers:list(),joined:[],left:l,updated:[]});
-const send=f=>{const n=Date.now();if(!f&&n-ls<100)return;ls=n;const m=JSON.stringify({s:sid,n:++seq,p:my});cls.forEach(c=>{if(c.connected)try{c.publish(mine,m)}catch(e){}})};
+const send=f=>{const n=Date.now();if(!f&&n-ls<80)return;ls=n;const m=JSON.stringify({s:sid,n:++seq,p:my});cls.forEach(c=>{if(c.connected)try{c.publish(mine,m)}catch(e){}})};
 const net={presence(p){for(const k in p){if(p[k]===null)delete my[k];else my[k]=p[k]}send(p&&p.ch);return Promise.resolve()},peers:list,
 onPeers(f){hd=f;setTimeout(()=>emit(),0);return()=>{}},leave(){if(dead)return Promise.resolve();dead=1;ints.forEach(clearInterval);document.removeEventListener('visibilitychange',vis);const b=JSON.stringify({s:sid,n:++seq,p:my,b:1});cls.forEach(c=>{try{if(c.connected){c.publish(mine,b);if(ann0)c.publish(LT,'',{retain:true})}c.end(false)}catch(e){}});return Promise.resolve()}};
 const conn=url=>new Promise(r=>{let d=0;const c=mqtt.connect(url,{connectTimeout:5000,reconnectPeriod:2000,keepalive:20,clean:true,will:WL}),f=v=>{if(!d){d=1;if(!v)try{c.end(true)}catch(e){}r(v?c:null)}};c.on('connect',()=>f(1));c.on('error',()=>f(0));c.on('close',()=>f(0));setTimeout(()=>f(0),6000)});
@@ -435,23 +437,24 @@ for(let i=0;i<130&&!remP;i++){if(i%5==0)send(1);await new Promise(r=>setTimeout(
 if(remP){send(1);live();ok(net);return}
 net.leave();no('peer-unavailable')})}
 async function netJoin(code,host){
-try{NET.room=await mkNet(code,host)}catch(e){omsg(e=='peer-unavailable'?'❌ Сервер с таким кодом не найден. Хозяин должен быть в лобби, а у обоих должна быть версия «онлайн v8» (внизу меню справа)':e=='unavailable-id'?'❌ Код занят, попробуй ещё раз':e=='network'?'❌ Ошибка сети: ни один сервер связи не открылся. Попробуй другую сеть (Wi-Fi или мобильный) или VPN, отключи блокировщик рекламы':e=='lib'?'❌ Не загрузилась библиотека онлайна (нужен интернет, попробуй VPN)':e=='timeout'?'❌ Нет ответа от сервера за 20 сек (проверь код, интернет; лучше Wi-Fi у обоих; хозяин должен оставаться в лобби)':'❌ Ошибка подключения: '+e);return}
+try{NET.room=await mkNet(code,host)}catch(e){omsg(e=='peer-unavailable'?'❌ Сервер с таким кодом не найден. Хозяин должен быть в лобби, а у обоих должна быть версия «онлайн v9» (внизу меню справа)':e=='unavailable-id'?'❌ Код занят, попробуй ещё раз':e=='network'?'❌ Ошибка сети: ни один сервер связи не открылся. Попробуй другую сеть (Wi-Fi или мобильный) или VPN, отключи блокировщик рекламы':e=='lib'?'❌ Не загрузилась библиотека онлайна (нужен интернет, попробуй VPN)':e=='timeout'?'❌ Нет ответа от сервера за 20 сек (проверь код, интернет; лучше Wi-Fi у обоих; хозяин должен оставаться в лобби)':'❌ Ошибка подключения: '+e);return}
 NET.code=code;NET.host=host?1:0;NET.started=0;NET.rem=null;NET.on=0;NET.hist=[];NET.lastCi=0;
 NET.room.presence(host?{host:1,mode:NET.mode}:{host:0});NET.room.onPeers(onPeers);
 hide('onl');hide('srv');show('lob');lmsg('');lobUI()}
 function onPeers(ch){
+NET.rx=Date.now();
 const ps=ch.peers.filter(p=>p.kind=='viewer'),o=ps.find(p=>!p.isMe);NET.rem=o?o.presence:null;chatIn();
 $('l_n').textContent='Игроков: '+ps.length+'/2';
 if(!NET.host){const hp=ps.find(p=>p.presence.host==1);if(hp){if(NET.mode!=hp.presence.mode){NET.mode=hp.presence.mode;lobUI()}
 if(hp.presence.go&&hp.presence.go!=NET.lastGo&&!NET.started){NET.lastGo=hp.presence.go;startOnline()}}}
 if(NET.on&&NET.rem&&NET.rem.rt&&NET.rem.rt!=NET.lastRt){NET.lastRt=NET.rem.rt;if(st!='end'){NET.echo=1;ending(NET.rem.res);NET.echo=0}}
 if(NET.on&&ch.left.length)msg('Друг вышел из игры')}
-function startOnline(){NET.on=1;NET.started=1;NET.role=NET.mode==3?'player':(NET.mode==1?(NET.host?'player':'granny'):(NET.host?'granny':'player'));hide('lob');play()}
+function startOnline(){NET.on=1;NET.started=1;{const o=NET.rem;NET.rn=NET.host?NET.lastGo:Math.max(NET.lastGo||0,(o&&o.rq)||0)}NET.rq=0;NET.role=NET.mode==3?'player':(NET.mode==1?(NET.host?'player':'granny'):(NET.host?'granny':'player'));hide('lob');play()}
 function mkAv(){const a=new THREE.Group(),b=new THREE.Mesh(new THREE.CylinderGeometry(.22,.22,1.1,10),mc(0x3a7bd5,.6)),h=new THREE.Mesh(new THREE.SphereGeometry(.2,10,8),mc(0xe0b894,.7));b.position.y=.65;h.position.y=1.35;a.add(b,h);return a}
 begin=function(){window.ONL=NET.on?1:0;PL.forEach(l=>{l.distance=window.ONL?12:9;l.intensity=window.ONL?1.7:.7});_begin();
 if(!NET.on){gTick=_gT;G.visible=true;if(NET.av)NET.av.visible=false;return}
 const gr=NET.role=='granny';if(!NET.av){NET.av=mkAv();scene.add(NET.av)}
-NET.lastRt=NET.rem&&NET.rem.rt||0;NET.lastCi=((NET.rem&&NET.rem.ch)||[]).reduce((a,m)=>Math.max(a,m&&m.i||0),0);NET.room.presence({res:null,rt:null});
+NET.lastRt=NET.rem&&NET.rem.rt||0;NET.lastCi=((NET.rem&&NET.rem.ch)||[]).reduce((a,m)=>Math.max(a,m&&m.i||0),0);NET.room.presence({res:null,rt:null});syncReset();NET.room.presence({wk:0,wb:''});
 if(gr){give('k1');give('k2');G.visible=false;g.st='patrol';gTick=()=>{};P.set(8,1.6,11.5);$('obj').textContent=MT[NET.mode][1]}
 else{G.visible=true;if(NET.mode==3&&NET.host)gTick=_gT;else{g.st='patrol';gTick=remoteG}$('obj').textContent+=' · '+MT[NET.mode][1]}
 clearInterval(NET.iv);NET.iv=setInterval(netTick,50)};
@@ -462,7 +465,8 @@ if(!sl&&st!='hide'&&!CH.god&&Math.hypot(P.x-g.x,P.z-g.z)<.95)caught()}
 function netTick(){if(!NET.room||!NET.on)return;
 const p={x:+P.x.toFixed(2),z:+P.z.toFixed(2),yaw:+yaw.toFixed(2),py:st=='hide'?0:1};
 if(NET.mode==3&&NET.host){p.gx=+g.x.toFixed(2);p.gz=+g.z.toFixed(2);p.gr=+G.rotation.y.toFixed(2);p.gs=g.st}
-NET.room.presence(p);const r=NET.rem,av=NET.av;
+Object.assign(p,worldOut());NET.room.presence(p);const r=NET.rem,av=NET.av;try{if(r)worldIn(r)}catch(e){}
+if(r){const q=Date.now()-(NET.rx||Date.now());if(q>3500&&!NET.lag){NET.lag=1;feedAdd('📡 Нет связи с другом ('+(q/1000|0)+' с)…')}else if(q<1500&&NET.lag){NET.lag=0;feedAdd('📡 Связь с другом восстановлена')}}
 const vis=av&&r&&r.x!=null&&(NET.mode==3||NET.role=='granny')&&r.py!=0&&st!='end';
 if(av){av.visible=!!vis;if(vis){av.position.x+=(r.x-av.position.x)*.3;av.position.z+=(r.z-av.position.z)*.3;av.rotation.y=r.yaw+PI}}}
 ending=function(n){_end(n);if(NET.on&&!NET.echo&&NET.room)NET.room.presence({res:n,rt:Date.now()})};
@@ -499,6 +503,46 @@ $('o_ls').onclick=svOpen;$('sv_r').onclick=svOpen;
 $('sv_b').onclick=()=>{svStop();hide('srv');show('onl');show('o_plus');hide('o_opts');hide('o_jf');omsg('')};
 $('sv_l').onclick=e=>{const b=e.target.closest&&e.target.closest('button'),c=b&&b.dataset.c;if(!c)return;svStop();$('sv_m').textContent='Подключаюсь... до 10 сек';$('sv_e').textContent='';netJoin(c.toUpperCase(),0)};
 $('f5').onclick=fs;
+
+/* СИНХРОНИЗАЦИЯ МИРА: двери, предметы, сейф, бабка, прятки, пауза */
+let LDF=0;
+const DNm=['спальня','ванная','кухня','гостиная'],IDS=['k1','k2','n1','n2','k3'],
+dst=d=>d.open?2:(d.locked?0:1),
+FN=()=>NET.mode==3||NET.role=='granny'?'Друг':'Бабка-друг',
+invMask=()=>IDS.reduce((a,id,b)=>a|(has(id)?1<<b:0),0);
+function feedAdd(t){const l=$('chl');if(!l)return;const d=document.createElement('div');d.className='chm';d.textContent=t;l.appendChild(d);while(l.children.length>5)l.removeChild(l.firstChild);setTimeout(()=>d.remove(),9000)}
+function applyDoor(d,s){if(s==2){d.locked=false;d.open=1;d.col.on=0}else if(s==1){d.locked=false;d.open=0;d.col.on=1}else{d.locked=!!d.key&&!d.main;d.open=0;d.col.on=1}}
+function syncReset(){NET.dk=[];NET.dv=[0,0,0,0];NET.rv=[0,0,0,0];NET.rps=0;NET.rpy=null;NET.lastGs='';NET.lastWk=0;NET.wk=0;NET.wb='';NET.wby='';NET.rx=Date.now();NET.lag=0}
+function worldOut(){
+const o={rn:st=='load'?0:(NET.rn||0),rq:NET.rq||0,ps:(st=='pause'||document.hidden)?1:0,ld:performance.now()-LDF<400?1:0,sf:safe.done?1:0},dr=[];
+for(let i=0;i<4;i++){const c=dst(doors[i]);if(NET.dk[i]==null)NET.dk[i]=c;if(c!=NET.dk[i]){NET.dv[i]=Math.max(NET.dv[i],NET.rv[i]||0)+1;NET.dk[i]=c}dr.push(c)}
+o.dr=dr;o.dv=NET.dv.slice();
+if(NET.role!='granny')o.iv=invMask();
+if(NET.mode==3&&NET.host){o.wk=NET.wk||0;o.wb=NET.wb||''}
+return o}
+function worldIn(r){
+const fn=FN();
+if(r.ps!=null){if(r.ps&&!NET.rps)feedAdd('⏸ '+fn+': пауза / игра свёрнута');else if(!r.ps&&NET.rps)feedAdd('▶ '+fn+' снова в игре');NET.rps=r.ps}
+if(r.py!=null){if(NET.rpy!=null&&r.py!=NET.rpy)feedAdd(r.py?'👀 '+fn+' вышел из укрытия':'🫣 '+fn+' спрятался');NET.rpy=r.py}
+if(r.rq&&r.rq>(NET.rn||0)&&NET.on&&st!='load'){NET.rn=NET.rq=r.rq;play();return}
+if(!NET.rn||r.rn!==NET.rn)return;
+for(let i=0;i<4;i++){
+const rs=r.dr&&r.dr[i],rv=r.dv?r.dv[i]|0:0;if(rs==null)continue;
+NET.rv[i]=Math.max(NET.rv[i]||0,rv);const d=doors[i],cur=dst(d);
+if(rv>NET.dv[i]||(rv==NET.dv[i]&&!NET.host&&rs!=cur)){
+const dx=d.col.a+.6,dz=d.col.c+.1;
+if(rs!=2&&cur==2&&Math.hypot(P.x-dx,P.z-dz)<1){NET.dv[i]=rv+1;continue}
+applyDoor(d,rs);NET.dk[i]=rs;NET.dv[i]=rv;
+if(rs!=cur){let who=fn;const gd=Math.hypot(g.x-dx,g.z-dz);if(NET.mode==3&&!NET.host&&r.x!=null&&gd<2.5&&gd<Math.hypot(r.x-dx,r.z-dz))who='Бабка';
+feedAdd(rs==2?'🚪 '+who+' открыл дверь: '+DNm[i]:cur==2?'🚪 '+who+' закрыл дверь: '+DNm[i]:'🔓 '+who+' отпер дверь: '+DNm[i]);
+if(Math.hypot(P.x-dx,P.z-dz)<18)snd.creak()}}}
+if(r.sf&&!safe.done){safe.done=1;keyp.emissive.set(0x22cc55);feedAdd('🔓 '+fn+' открыл сейф!');if(NET.role!='granny')give('k3')}
+if(NET.role!='granny'&&r.iv!=null)IDS.forEach((id,b)=>{if((r.iv>>b&1)&&!has(id)){give(id);feedAdd('🎒 '+fn+' нашёл: '+GV[id][0]+(NET.mode==3?' (инвентарь общий)':''))}});
+if(NET.mode==3&&!NET.host){
+if(r.wk!=null&&r.wk!==NET.lastWk){if(r.wk>0){const by=r.wb;msg(by=='h'?'Друг разбудил бабку! 😱':by=='g'?'Ты разбудил бабку! 😱':'Гренни проснулась!!! 😱');feedAdd(by=='h'?'😱 Друг разбудил бабку':by=='g'?'😱 Ты разбудил бабку':'😱 Бабка проснулась');snd.growl()}NET.lastWk=r.wk}
+if(r.gs&&r.gs!==NET.lastGs){if(r.gs=='chase')feedAdd('😡 Гренни погналась за другом!');NET.lastGs=r.gs}}}
+const _wake=wake;wake=function(){const was=g.st=='sleep',by=NET.wby||(cm>=DF.wake?'t':'h');NET.wby='';_wake();if(was&&NET.on&&NET.mode==3&&NET.host){NET.wk=(NET.wk||0)+1;NET.wb=by;if(by=='g'){msg('Друг разбудил бабку! 😱');feedAdd('😱 Друг разбудил бабку')}}};
+$('ba').addEventListener('click',()=>{if(NET.on&&NET.room){NET.rq=Date.now();NET.rn=NET.rq;NET.wk=0;NET.wb='';NET.room.presence({rq:NET.rq,wk:0,wb:''})}});
 
 /* ЧАТ */
 NET.cid=Math.floor(Date.now()/1000)*1000;NET.hist=[];NET.lastCi=0;let chPrev='';
