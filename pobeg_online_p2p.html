@@ -515,9 +515,13 @@ function lobUI(){const h=NET.host;$('l_code').textContent=NET.code;$('l_m').clas
 $('l_m').innerHTML=MODES.map(([k,n])=>`<button class="d${k==NET.mode?' on':''}" data-m="${k}">${n}</button>`).join('');
 $('l_mt').textContent=h?'':'Режим: '+MT[NET.mode][0]}
 $('l_m').onclick=e=>{const m=e.target.dataset&&e.target.dataset.m;if(!m||!NET.room)return;NET.mode=+m;NET.room.presence({mode:NET.mode});lobUI()};
-const BR=['wss://broker.emqx.io:8084/mqtt','wss://broker.hivemq.com:8884/mqtt','wss://test.mosquitto.org:8081','wss://mqtt.eclipseprojects.io:443/mqtt'];
+const BR=['wss://broker.emqx.io:8084/mqtt','wss://broker.hivemq.com:8884/mqtt','wss://test.mosquitto.org:8081','wss://mqtt.eclipseprojects.io:443/mqtt','wss://broker-cn.emqx.io:8084/mqtt','wss://mqtt-dashboard.com:8884/mqtt'];
+/* если основной CDN заблокирован — пробуем запасные адреса библиотеки */
+let _mq=null;function loadMqtt(){if(typeof mqtt!='undefined')return Promise.resolve(1);if(_mq)return _mq;
+const U=['https://unpkg.com/mqtt@5.10.1/dist/mqtt.min.js','https://fastly.jsdelivr.net/npm/mqtt@5.10.1/dist/mqtt.min.js','https://cdn.jsdelivr.net/npm/mqtt@5.9.1/dist/mqtt.min.js','https://unpkg.com/mqtt@5.9.1/dist/mqtt.min.js'];
+_mq=(async()=>{for(const u of U){if(typeof mqtt!='undefined')break;await new Promise(r=>{const s=document.createElement('script');s.src=u;s.onload=s.onerror=()=>r();setTimeout(r,6000);document.head.appendChild(s)})}_mq=null;return typeof mqtt!='undefined'})();return _mq}
 function mkNet(code,host){return new Promise(async(ok,no)=>{
-if(typeof mqtt=='undefined'){no('lib');return}
+if(!await loadMqtt()){no('lib');return}
 const sid=Math.random().toString(36).slice(2,8),base='pobegdom/'+code.toLowerCase()+'/',mine=base+(host?'h':'g'),theirs=base+(host?'g':'h');
 const LT='pobegdom/list/'+code.toLowerCase(),WL=host?{topic:LT,payload:'',retain:true,qos:0}:undefined;let ann0=0;
 let my=host?{host:1}:{host:0},remP=null,remAt=0,hd=null,locked=null,coll=0,ls=0,seq=0,seen={},ints=[],cls=[],dead=0,lt=Date.now(),lp='',lastRc=0;
@@ -526,7 +530,7 @@ const emit=(l=[])=>hd&&hd({peers:list(),joined:[],left:l,updated:[]});
 const send=f=>{const n=Date.now();if(!f&&n-ls<100)return;const pj=JSON.stringify(my);if(!f&&pj===lp&&n-ls<1000)return;lp=pj;ls=n;const m='{"s":"'+sid+'","n":'+(++seq)+',"p":'+pj+'}';cls.forEach(c=>{if(c.connected)try{c.publish(mine,m)}catch(e){}})};
 const net={presence(p){for(const k in p){if(p[k]===null)delete my[k];else my[k]=p[k]}send(p&&(p.ch||p.go||p.rt||p.mode!=null));return Promise.resolve()},peers:list,links:()=>cls.filter(c=>c.connected).length+'/'+BR.length,
 onPeers(f){hd=f;setTimeout(()=>emit(),0);return()=>{}},leave(){if(dead)return Promise.resolve();dead=1;ints.forEach(f=>typeof f=='function'?f():clearInterval(f));document.removeEventListener('visibilitychange',vis);const b=JSON.stringify({s:sid,n:++seq,p:my,b:1});cls.forEach(c=>{try{if(c.connected){c.publish(mine,b);if(ann0)c.publish(LT,'',{retain:true})}c.end(false)}catch(e){}});return Promise.resolve()}};
-const conn=url=>new Promise(r=>{let d=0;const c=mqtt.connect(url,{connectTimeout:5000,reconnectPeriod:2000,keepalive:20,clean:true,will:WL}),f=v=>{if(!d){d=1;if(!v)try{c.end(true)}catch(e){}r(v?c:null)}};c.on('connect',()=>f(1));c.on('error',()=>f(0));c.on('close',()=>f(0));setTimeout(()=>f(0),6000)});
+const conn=url=>new Promise(r=>{let d=0;const c=mqtt.connect(url,{connectTimeout:8000,reconnectPeriod:2000,keepalive:20,clean:true,will:WL}),f=v=>{if(!d){d=1;if(!v)try{c.end(true)}catch(e){}r(v?c:null)}};c.on('connect',()=>f(1));c.on('error',()=>f(0));c.on('close',()=>f(0));setTimeout(()=>f(0),9000)});
 const onMsg=(t,m)=>{let d;try{d=JSON.parse(m.toString())}catch(e){return}if(!d||!d.p)return;
 if(d.n<=(seen[d.s]||0))return;seen[d.s]=d.n;
 if(host&&t==base+'h'&&d.s!==sid){coll=1;return}if(t!==theirs)return;
@@ -599,14 +603,14 @@ $('l_cp').onclick=()=>{const t=NET.code;try{navigator.clipboard.writeText(t).the
 function cp2(t){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();let ok=0;try{ok=document.execCommand('copy')}catch(e){}a.remove();lmsg(ok?'Код скопирован ✅':'Скопируй код вручную: '+t)}
 
 /* СПИСОК СЕРВЕРОВ */
-const SV={map:{},cls:[],iv:0,tok:0},mconn=url=>new Promise(r=>{let d=0;const c=mqtt.connect(url,{connectTimeout:5000,reconnectPeriod:2000,keepalive:20,clean:true}),f=v=>{if(!d){d=1;if(!v)try{c.end(true)}catch(e){}r(v?c:null)}};c.on('connect',()=>f(1));c.on('error',()=>f(0));c.on('close',()=>f(0));setTimeout(()=>f(0),6000)});
+const SV={map:{},cls:[],iv:0,tok:0},mconn=url=>new Promise(r=>{let d=0;const c=mqtt.connect(url,{connectTimeout:8000,reconnectPeriod:2000,keepalive:20,clean:true}),f=v=>{if(!d){d=1;if(!v)try{c.end(true)}catch(e){}r(v?c:null)}};c.on('connect',()=>f(1));c.on('error',()=>f(0));c.on('close',()=>f(0));setTimeout(()=>f(0),9000)});
 function svStop(){SV.tok++;clearInterval(SV.iv);SV.cls.forEach(c=>{try{c.end(true)}catch(e){}});SV.cls=[]}
 function svRender(){const n=Date.now(),a=Object.values(SV.map).filter(d=>n-d.t<20000&&d.n<2).sort((x,y)=>y.t-x.t);
 $('sv_l').innerHTML=a.map(d=>`<button class="b" data-c="${String(d.c).replace(/[^A-Z0-9]/gi,'')}">${String(d.c).replace(/[^A-Z0-9]/gi,'')} · ${(MT[d.m]||MT[1])[0]} · ${d.n}/2</button>`).join('');
 $('sv_m').textContent=a.length?'Нажми на сервер, чтобы войти':'Серверов пока нет. Создай свой: ＋ → Создать сервер'}
 async function svOpen(){svStop();const tk=SV.tok;hide('onl');show('srv');SV.map={};$('sv_l').innerHTML='';$('sv_e').textContent='';
-if(typeof mqtt=='undefined'){$('sv_m').textContent='❌ Не загрузилась библиотека онлайна (нужен интернет, попробуй VPN)';return}
-$('sv_m').textContent='Поиск серверов... до 6 сек';
+$('sv_m').textContent='Поиск серверов... до 10 сек';
+if(!await loadMqtt()){$('sv_m').textContent='❌ Не загрузилась библиотека онлайна (нужен интернет, попробуй VPN)';return}
 const cs=(await Promise.all(BR.map(mconn))).filter(Boolean);
 if(tk!=SV.tok){cs.forEach(c=>{try{c.end(true)}catch(e){}});return}
 if(!cs.length){$('sv_m').textContent='❌ Ошибка сети: ни один сервер связи не открылся. Попробуй другую сеть или VPN';return}
