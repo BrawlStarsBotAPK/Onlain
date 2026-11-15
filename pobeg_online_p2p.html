@@ -86,7 +86,7 @@ label{display:block;width:min(70vw,320px)}input[type=range]{width:100%}
 <canvas id="c"></canvas>
 <div id="hud" class="hid">
 <div id="obj"></div><div id="clk">🕑 2:00</div><div id="inv"></div>
-<div id="tb"><button id="f1" class="ib">⛶</button><button id="tbc" class="ib hid">🛠</button><button id="tbp" class="ib hid">📞</button><button id="tbt" class="ib hid">📱</button><button id="tbf" class="ib hid">👤</button><button id="pb" class="ib">⏸</button></div>
+<div id="tb"><button id="f1" class="ib">⛶</button><button id="tbc" class="ib hid">🛠</button><button id="tbp" class="ib hid">📲</button><button id="tbt" class="ib hid">📱</button><button id="tbf" class="ib hid">👤</button><button id="pb" class="ib">⏸</button></div>
 <i id="dot"></i><div id="hint" class="hid"></div><div id="cp" class="hid"><b>🛠 ЧИТ-ПАНЕЛЬ</b><div id="cpt"></div><b>Выдать предметы</b><div id="cpg"></div><b>Действия</b><div id="cpa"></div><button id="cpx" class="b">Закрыть</button></div>
 <div id="jb" class="mob"><i id="jk"></i></div>
 <div id="bt" class="mob"><button id="bj" class="rb">⤒</button><button id="bi" class="rb">E</button></div>
@@ -94,6 +94,8 @@ label{display:block;width:min(70vw,320px)}input[type=range]{width:100%}
 <div id="hv" class="hid"></div>
 <div id="msg" class="hid"></div>
 <div id="menu" class="s"><button id="news" class="b">📰 НОВОСТИ</button><button id="acc" class="b">👤</button><button id="f2" class="ib tr">⛶</button><h1>ПОБЕГ ИЗ ДОМА</h1><div id="ec"></div><button id="bp" class="b">ИГРАТЬ</button><button id="bpr" class="b">🎟 ПРОМОКОД</button><div style="position:absolute;bottom:3px;right:8px;font-size:11px;opacity:.5">онлайн v17</div><button id="bon" class="b">🌐 ОНЛАЙН</button><button id="bs" class="b">НАСТРОЙКИ</button><button id="bx" class="b">ВЫХОД</button></div>
+<style>#a2o{z-index:31;background:#000e}#a2s{max-width:84vw;font-size:18px}#a2o h1{font-size:min(7vw,44px)}</style>
+<div id="a2o" class="s hid"><h1 id="a2t"></h1><div id="a2s"></div><button id="a2b1" class="b"></button><button id="a2b2" class="b"></button><button id="a2b3" class="b">В МЕНЮ</button></div>
 <div id="load" class="s hid"><h2>Загрузка...</h2><div id="pbar"><i id="bar"></i></div></div>
 <div id="pause" class="s hid"><h2>ПАУЗА</h2><button id="rs" class="b">ПРОДОЛЖИТЬ</button><button id="ps" class="b">НАСТРОЙКИ</button><button id="pm" class="b">В МЕНЮ</button></div>
 <div id="set" class="s hid"><h2>НАСТРОЙКИ</h2><label>Громкость<input id="vl" type="range" value="70"></label><label>Чувствительность<input id="sn" type="range" min="10" value="50"></label><label>Растяжение экрана <span id="stv">×1.00</span><input id="stx" type="range" min="60" max="140" value="100"></label><div style="text-align:center"><div id="gqt">Графика</div><div id="gq"></div></div><button id="sb" class="b">НАЗАД</button></div>
@@ -122,6 +124,23 @@ label{display:block;width:min(70vw,320px)}input[type=range]{width:100%}
 <div id="scare" class="s hid"><h2>😱 НАПУГАТЬ</h2><canvas id="sc_cv" width="240" height="240"></canvas><div id="sc_st" style="max-width:82vw;font-size:13px;opacity:.85"></div><div id="sc_m" style="max-width:82vw;min-height:1.4em"></div><button id="sc_vid" class="b">🎬 ВЫДАТЬ ВИДЕО</button><button id="sc_std" class="b">👻 СТАНДАРТНЫЙ СКРИМЕР</button><button id="sc_me" class="b">👁 ПОКАЗАТЬ СЕБЕ (проверка)</button><div style="display:flex;gap:6px"><input id="sc_t" class="inp" maxlength="80" placeholder="Текст на экран другу" style="width:min(52vw,230px);font-size:16px"><button id="sc_msg" class="ib" style="width:54px">📢</button></div><button id="sc_bk" class="b">НАЗАД</button></div>
 <input id="sc_f" type="file" accept="video/*" style="display:none">
 <div id="scrOv"><video id="scrV" playsinline style="display:none"></video><canvas id="scrC" style="display:none"></canvas><div id="scrT" style="display:none"></div></div>
+<style>
+#phn{z-index:6;background:#000b}#phs{width:min(84vw,300px);background:linear-gradient(#10131a,#06070a);border:2px solid var(--ac);border-radius:26px;padding:16px 14px;display:flex;flex-direction:column;align-items:center;gap:12px;box-shadow:0 0 30px #000}
+#pht{width:100%;font-size:13px;opacity:.75;display:flex;justify-content:space-between}#pha{width:100%;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.ap{background:#1b2030;color:var(--fg);border:1px solid #fff2;border-radius:16px;padding:10px 2px;font:inherit;font-size:12px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:4px;pointer-events:auto}
+.ap i{font-style:normal;font-size:30px}.ap:active{background:var(--ac);color:#000}.ap.off{opacity:.55}#phm{min-height:1.3em;font-size:13px;color:#e0b050}
+#drn{position:fixed;inset:0;z-index:6;touch-action:none;pointer-events:auto;color:#9fe8ff;font:13px monospace;text-shadow:0 0 6px #08f;background:radial-gradient(transparent 52%,#000b),repeating-linear-gradient(#0000 0 2px,#0003 2px 3px)}
+#drn>*{position:absolute}#dtl{left:12px;top:calc(12px + env(safe-area-inset-top,0px))}#dx{right:12px;top:calc(12px + env(safe-area-inset-top,0px))}
+#dret{left:50%;top:50%;width:40px;height:40px;margin:-20px;border:2px solid #9fe8ff99;border-radius:50%}#dret::after{content:"";position:absolute;left:50%;top:50%;width:4px;height:4px;margin:-2px;border-radius:50%;background:#9fe8ff}
+#dwn{left:50%;top:calc(52px + env(safe-area-inset-top,0px));transform:translateX(-50%);color:#ff6a5a;text-shadow:0 0 8px #f00;white-space:nowrap;font-size:15px}
+#dhn{left:50%;bottom:calc(14px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);text-align:center;width:max-content;max-width:72vw;opacity:.85}
+#dbt{right:14px;bottom:calc(64px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:10px}.dbb{width:56px;height:56px;border-radius:50%;background:#0a1a2acc;color:#9fe8ff;border:2px solid #9fe8ff;font-size:22px;pointer-events:auto}
+#dfl{inset:0;background:#fff;opacity:0;pointer-events:none}#dfl.on{animation:dfl .7s}@keyframes dfl{0%{opacity:1}100%{opacity:0}}
+#stn{position:fixed;top:calc(54px + env(safe-area-inset-top,0px));left:50%;transform:translateX(-50%);z-index:7;pointer-events:none;background:var(--pn);border:1px solid #b3261e;color:#ff8a80;padding:4px 12px;white-space:nowrap}
+</style>
+<div id="phn" class="s hid"><div id="phs"><div id="pht"><span>📶 ▂▄▆ 🔋</span><span id="pht_t"></span></div><div id="pha"><button id="ap_c" class="ap"><i>☎️</i>112</button><button id="ap_d" class="ap"><i>🚁</i><span id="apd">Дрон</span></button></div><div id="phm"></div><button id="ph_x" class="b" style="min-width:0">✕ ЗАКРЫТЬ</button></div></div>
+<div id="drn" class="hid"><div id="dtl">🚁 ДРОН · 🔋<span id="dbat">40</span>с · <span id="dck"></span></div><button id="dx" class="ib">✕</button><i id="dret"></i><div id="dwn"></div><div id="dhn"></div><div id="dbt"><button id="dup" class="dbb">▲</button><button id="ddn" class="dbb">▼</button></div><div id="dfl"></div></div>
+<div id="stn" class="hid"></div>
 <script>
 /* v18: прогресс хранится отдельно для каждого аккаунта */
 (function(){var L=null,S=null,u=null;try{L=window.localStorage}catch(e){}try{S=window.sessionStorage}catch(e){}
@@ -238,7 +257,7 @@ B(.27,0,2,.04,.7,.5,bsm,0);B(.5,0,2,.5,.04,.5,bsm,0);B(.5,.66,2,.5,.04,.5,bsm,0)
 cols.push({a:.25,b:.75,c:1.75,d:2.25,on:1});
 {const dp=new THREE.Mesh(bg,mc(0x4a525a,.4,{metalness:.7})),hd=new THREE.Mesh(bg,brass),kl=new THREE.Mesh(bg,bsl);dp.scale.set(.03,.66,.46);dp.position.set(0,.35,-.23);hd.scale.set(.05,.1,.04);hd.position.set(.03,.35,-.38);kl.scale.set(.02,.06,.06);kl.position.set(.03,.55,-.12);bsg.add(dp,hd,kl);bsg.position.set(.77,0,2.23);scene.add(bsg)}
 {const ph=new THREE.Mesh(bg,mc(0x1a1f2b,.3,{emissive:0x3a6aff,emissiveIntensity:.9}));ph.scale.set(.1,.012,.18);ph.position.set(.5,.06,2);ph.rotation.y=.4;scene.add(ph);items.push(ph);ITM.ph=ph;
-IT.push({p:new V(.5,.1,2),r:2.6,l:()=>ph.visible&&bsd.open&&OKI()?'Взять: Телефон':null,f:()=>{take('ph','Телефон','📱',ph);msgL('Телефон! Нажми 📞 (или клавишу P), чтобы позвонить 112',4500)}})}
+IT.push({p:new V(.5,.1,2),r:2.6,l:()=>ph.visible&&bsd.open&&OKI()?'Взять: Телефон':null,f:()=>{take('ph','Телефон','📱',ph);msgL('Телефон! Нажми 📲 (или клавишу P): там 112 и приложение 🚁 Дрон',4500)}})}
 IT.push({p:new V(.8,.4,2),r:2.6,l:()=>(!OKI()||bsd.open)?null:(has('k5')?'Открыть сейф':'Сейф (нужен ключ)'),f:()=>{if(has('k5')){bsd.open=1;snd.unl();msgL('Сейф открыт! Внутри лежит телефон 📱',3500)}else{msg('Сейф заперт. Нужен ключ...');snd.lock()}}});
 mkKey(2.5,1.25,8.22,'k5','Ключ от сейфа',0x9aa7b4);
 {const ki=IT.pop(),kg=items[items.length-1];IT.push({p:new V(2.5,1.1,8.75),r:2.6,l:()=>kg.visible&&OKI()?'Заглянуть за телевизор':null,f:()=>take('k5','Ключ от сейфа','🗝️',kg)})}
@@ -263,7 +282,7 @@ const T=(f,d,ty='sine',v=.1,g=0,dl=0)=>{if(!AC)return;const t=AC.currentTime+dl,
 N=(d,v,f)=>{if(!AC)return;const n=AC.sampleRate*d|0,b=AC.createBuffer(1,n,AC.sampleRate),a=b.getChannelData(0);for(let i=0;i<n;i++)a[i]=(Math.random()*2-1)*(1-i/n);const s=AC.createBufferSource(),fi=AC.createBiquadFilter(),g=AC.createGain();s.buffer=b;fi.type='lowpass';fi.frequency.value=f;g.gain.value=v;s.connect(fi);fi.connect(g);g.connect(MG);s.start()},
 snd={step:()=>N(.12,.35,400+Math.random()*200),creak:()=>{T(140,.9,'sawtooth',.05,70);T(210,.9,'square',.02,90,.05)},take:()=>{T(660,.25,'sine',.15);T(990,.35,'sine',.12,0,.1)},lock:()=>{N(.08,.5,1200);T(90,.15,'square',.08)},unl:()=>{T(400,.1,'square',.08);T(600,.15,'square',.08,0,.1)}};
 function initA(){if(AC){AC.resume();return}AC=new(window.AudioContext||window.webkitAudioContext)();MG=AC.createGain();MG.gain.value=vol;MG.connect(AC.destination);
-[55,58.3,110.5].forEach((f,i)=>{const o=AC.createOscillator(),g=AC.createGain(),lf=AC.createOscillator(),lg=AC.createGain(),fi=AC.createBiquadFilter();o.type=i<2?'sawtooth':'sine';o.frequency.value=f;fi.type='lowpass';fi.frequency.value=220;g.gain.value=.06;lf.frequency.value=.07+i*.05;lg.gain.value=.04;lf.connect(lg);lg.connect(g.gain);lf.start();o.connect(fi);fi.connect(g);g.connect(MG);o.start()});
+[55,58.3,110.5].forEach((f,i)=>{const o=AC.createOscillator(),g=AC.createGain(),lf=AC.createOscillator(),lg=AC.createGain(),fi=AC.createBiquadFilter();o.type=i<2?'sawtooth':'sine';o.frequency.value=f;fi.type='lowpass';fi.frequency.value=220;g.gain.value=0;lf.frequency.value=.07+i*.05;lg.gain.value=0;lf.connect(lg);lg.connect(g.gain);lf.start();o.connect(fi);fi.connect(g);g.connect(MG);o.start()});
 setInterval(()=>{if(st=='play'&&Math.random()<.5)T([233,247,311,370,466][Math.random()*5|0]*(Math.random()<.5?1:.5),4,'sine',.05)},4500)}
 /* интерфейс и логика */
 function renderInv(){$('inv').innerHTML=inv.map(i=>`<div class="i">${i.ic} ${i.n}</div>`).join('')}
@@ -360,7 +379,7 @@ else if(fx&&fd<9*DF.hear){g.st='search';g.ls=[FR.x,FR.z];g.path=route(near(g.x,g
 else if(g.path.length)follow(pat,dt);
 else{g.w-=dt;if(g.w<=0){g.path=route(near(g.x,g.z),Math.random()<.55?near(P.x,P.z):[0,2,5,8,11,12][Math.random()*6|0]);g.w=1.5+Math.random()*2}}
 }else if(g.st=='chase'){
-g.hb-=dt;if(g.hb<0){g.hb=.5;T(55,.2,'sine',.3)}
+g.hb-=dt;if(g.hb<0){g.hb=.5}
 if(g.pf>0&&g.path.length){g.pf-=dt;follow(ch,dt)}
 else if(se){g.pf=0;g.ls=[P.x,P.z];const m=gmove(P.x,P.z,ch,dt);if(m<ch*dt*.3){g.stuck+=dt;if(g.stuck>.35){g.path=route(near(g.x,g.z),near(P.x,P.z));g.stuck=0;g.pf=1.5}}else g.stuck=0}
 else{g.st='search';g.t=0;g.path=route(near(g.x,g.z),near(g.ls[0],g.ls[1]))}
@@ -748,15 +767,15 @@ cadd('d',xCK?'Ты шутишь? Отвечай нормально!':'Это н�
 function callStart(){st='call';cN=0;cS=0;cB=0;jx=jy=0;$('cl_t').innerHTML='';show('call');cnode()}
 $('cl_x').onclick=()=>{if(st!='call')return;hide('call');st='play';cB=0;lock()};
 addEventListener('keydown',e=>{if(e.code=='KeyT'&&!e.repeat&&st=='play'&&tabOK()&&!window.GMG){document.exitPointerLock&&document.exitPointerLock();$('tbt').click()}});
-{const _u4=upd;upd=function(){_u4();if(!window.GMG){if(has('k4'))$('obj').textContent+=' · 🪟 есть ключ от окна: беги в гостиную!';else if(has('n3'))$('obj').textContent+=' · 📜 «Стрелки есть, а рук не имею. Хожу по кругу, на месте стою. В моём брюхе — ключ от окна»';if(has('ph'))$('obj').textContent+=' · 📱 телефон есть: звони 112 (кнопка 📞 или клавиша P)';else if(has('k5'))$('obj').textContent+=' · 🗝️ есть ключ от сейфа: сейф в спальне'}}}
+{const _u4=upd;upd=function(){_u4();if(!window.GMG){if(has('k4'))$('obj').textContent+=' · 🪟 есть ключ от окна: беги в гостиную!';else if(has('n3'))$('obj').textContent+=' · 📜 «Стрелки есть, а рук не имею. Хожу по кругу, на месте стою. В моём брюхе — ключ от окна»';if(has('ph'))$('obj').textContent+=' · 📱 телефон есть: кнопка 📲 или клавиша P — приложения 112 и 🚁 Дрон';else if(has('k5'))$('obj').textContent+=' · 🗝️ есть ключ от сейфа: сейф в спальне'}}}
 /* ===== v14: АНИМАЦИИ КОНЦОВОК, ТЕЛЕФОН ===== */
 const CIN={},cl01=x=>Math.max(0,Math.min(1,x)),lookY=(px,pz,tx,tz)=>Math.atan2(-(tx-px),-(tz-pz));let CN=null;
 CIN[7]={dur:4.8,init(){CN.s=P.clone();snd.creak()},step(t,dt){const k=Math.min(1,dt*4);
 if(t<1.6){const w=cl01(t/1.4),e=w*w*(3-2*w);P.x=CN.s.x+(8-CN.s.x)*e;P.z=CN.s.z+(12.4-CN.s.z)*e;P.y=1.6+Math.sin(t*9)*.03*(1-w);yaw+=gang(PI-yaw)*k;pit-=pit*k}
 else{P.x=8;wA=cl01((t-1.6)/1);const u=cl01((t-2.7)/2.1);P.z=12.4+u*3.4;P.y=1.6+Math.sin(Math.min(1,u*1.5)*PI)*.45-u*u*.8;pit=u*.45;env(u);fl.intensity=1.6*(1-u)}
 if(t>1.7&&!CN.m){CN.m=1;snd.creak()}}};
-CIN[5]={dur:6.4,init(){P.set(12.2,1.6,10.6);yaw=lookY(12.2,10.6,16.5,14);pit=-.02;fl.intensity=1.2;G.visible=true;G.rotation.set(0,0,0);G.position.set(15.3,0,11.4);COPS.forEach((c,i)=>{c.visible=true;c.position.set(16+i*.9,0,17.4);c.rotation.y=PI})},
-step(t,dt){const f=Math.sin(t*14)>0;PLR.intensity=f?3:0;PLB.intensity=f?0:3;P.x=12.2+Math.sin(t*.6)*.1;
+CIN[5]={dur:6.4,init(){P.set(15,1.6,8.8);yaw=lookY(15,8.8,16.5,14);pit=-.02;fl.intensity=1.2;G.visible=true;G.rotation.set(0,0,0);G.position.set(15.3,0,11.4);COPS.forEach((c,i)=>{c.visible=true;c.position.set(16+i*.9,0,17.4);c.rotation.y=PI})},
+step(t,dt){const f=Math.sin(t*14)>0;PLR.intensity=f?3:0;PLB.intensity=f?0:3;P.x=15+Math.sin(t*.6)*.1;
 if(t>.8&&!doors[4].open){doors[4].open=1;doors[4].col.on=0;snd.creak()}
 const u=cl01((t-1.2)/2),v=cl01((t-3.4)/2.6);
 COPS.forEach((c,i)=>{if(t<3.4){c.position.set(16+i*.9,Math.abs(Math.sin(t*7))*.04,17.4-u*5.2);c.rotation.y=PI}else{c.position.set(16+i*.9+((i?17.1:15.9)-(16+i*.9))*cl01((t-3.2)/1),Math.abs(Math.sin(t*7))*.04,12.2+v*6.2);c.rotation.y=0}});
@@ -852,7 +871,7 @@ CIN[11]={dur:5,init(){P.set(2.5,1.5,9.7);yaw=lookY(2.5,9.7,2.5,12.4);pit=-.2;fl.
 step(t,dt){tvm.emissiveIntensity=1.6+Math.random();if(t>.5&&!CN.m){CN.m=1;msgL('Гренни: «Ой, самое интересное! Не мешай!»',2200)}if(t>2.8&&CN.m<2){CN.m=2;msgL('Ты уходишь, а сериал только начался...',1800)}}};
 CIN[12]={dur:5.4,init(){P.set(11.5,1.7,13.3);yaw=lookY(11.5,13.3,6.5,10.5);pit=-.1;fl.intensity=1.4;G.visible=true;G.rotation.set(0,0,0);CN.m=0},
 step(t,dt){const a=t*3.2,b=a-.9;xC.x=6.5+Math.cos(a)*2;xC.z=10.5+Math.sin(a)*1.6;CATM.rotation.y=-a;CATM.position.set(xC.x,0,xC.z);G.position.set(6.5+Math.cos(b)*2,0,10.5+Math.sin(b)*1.6);G.rotation.y=-b;const sw=Math.sin(t*9)*.7;gL.rotation.x=sw;gR.rotation.x=-sw;if(t>.3&&!CN.m){CN.m=1;msgL('Гренни: «Стой, усатый! Мой тапок!»',2200)}}};
-CIN[13]={dur:6,init(){P.set(12.2,1.6,10.6);yaw=lookY(12.2,10.6,16.5,14);pit=-.02;fl.intensity=1.2;G.visible=true;G.rotation.set(0,0,0);G.position.set(15.3,0,11.4);COPS[0].visible=true;COPS[0].position.set(16.4,0,17.4);PLR.color.setHex(0xffffff);doors[4].open=1;doors[4].col.on=0;snd.creak();CN.m=0},
+CIN[13]={dur:6,init(){P.set(15,1.6,8.8);yaw=lookY(15,8.8,16.5,14);pit=-.02;fl.intensity=1.2;G.visible=true;G.rotation.set(0,0,0);G.position.set(15.3,0,11.4);COPS[0].visible=true;COPS[0].position.set(16.4,0,17.4);PLR.color.setHex(0xffffff);doors[4].open=1;doors[4].col.on=0;snd.creak();CN.m=0},
 step(t,dt){PLR.intensity=2.5;const u=cl01((t-.8)/2),v=cl01((t-3.4)/2.4),c=COPS[0];
 if(t<3.4){c.position.set(16.4,Math.abs(Math.sin(t*7))*.04,17.4-u*5.2);c.rotation.y=PI}else{c.rotation.y=0;c.position.set(16.4,Math.abs(Math.sin(t*7))*.04,12.2+v*6.2);G.position.set(15.3+1.1*cl01((t-3.2)/1),0,11.4+v*6.8);const sw=v>0&&v<1?Math.sin(t*8)*.6:0;gL.rotation.x=sw;gR.rotation.x=-sw}
 if(t>.4&&!CN.m){CN.m=1;msgL('Внук: «Бабуль, поехали ко мне в гости!»',2200)}if(t>3.2&&CN.m<2){CN.m=2;msgL('Гренни: «Ох, внучок, как же я рада!»',2000)}},
@@ -1111,4 +1130,209 @@ const cur=sg('acc_cur');
 if(cur&&(cur!=='CODEX'||sg('acc_dv')===DEVH)){ME.nick=cur;ME.dev=cur==='CODEX';init()}
 else{sd('acc_cur');sd('acc_dv');on('login')}
 })();
-</script></body></html>
+</script><script>
+/* ===== АКТ 2: ДОМ ДЕДА + выход через дверь во двор ===== */
+(function(){
+const OX=100,X=v=>OX+v,LK=k=>LS.get(k);
+let ACT=+LK('pdd_act')==2?2:1;window.A2=0;
+/* --- дом деда (своя планировка: кухня, ванная, спальня сверху; коридор; прихожая слева, гостиная справа) --- */
+const gr2=gr.clone();gr2.position.x=OX+10;scene.add(gr2);
+const c2=ce.clone();c2.position.set(OX+10,3,10);c2.scale.y=20/14;scene.add(c2);
+FLR(X(0),0,X(8),5,tile);FLR(X(8),0,X(13),5,tile);FLR(X(13),0,X(20),5,wood);FLR(X(0),5,X(20),7,carpet);FLR(X(0),7,X(7),20,wood);FLR(X(7),7,X(20),14,carpet);FLR(X(7),14,X(14),20,tile);FLR(X(14),14,X(20),20,wood);
+W('x',0,X(0),X(20));W('x',20,X(0),X(20),[[X(3.5),1.2]]);W('z',X(0),0,20);W('z',X(20),0,20);W('x',14,X(7),X(20),[[X(10),1.2]]);W('z',X(14),14,20,[[17,2]]);
+W('x',5,X(0),X(20),[[X(4),1.2],[X(10),1.2],[X(16),1.2]]);W('x',7,X(0),X(20),[[X(3.5),2.4],[X(13),1.2]]);
+W('z',X(8),0,5);W('z',X(13),0,5);W('z',X(7),7,20);
+D(X(4),5);D(X(10),5);D(X(16),5,'a2k1');D(X(13),7,'a2k2');D(X(10),14);D(X(3.5),20,'a2k3');const EXD=doors[doors.length-1];
+B(X(4),0,.5,7,.9,.7,mw);B(X(6),0,3.5,1.7,.72,1,mw);B(X(.7),0,3,.9,1.9,.9,mb);
+B(X(11.8),0,1.5,1.2,.6,2.6,mb);B(X(8.7),0,3.5,.45,.4,.6,mb);
+B(X(15),0,1.3,2.2,.35,1.9,mf);B(X(18),0,4.3,.5,.5,.5,mw);B(X(19.4),0,2.5,.9,2.1,1.6,mw);
+B(X(1),0,12,.6,1.9,1.4,mw);B(X(6),0,10,.5,.5,1.6,mw);
+B(X(16),0,13,2.8,.45,.9,mf);B(X(16),.45,13.55,2.8,.55,.2,mf,0);B(X(16),0,8.3,2,.5,.5,mw);B(X(16),.9,8.3,1.4,.8,.08,mk,0);B(X(16),.95,8.35,1.3,.7,.02,tvm,0);B(X(16),0,10.5,1.2,.4,.5,mw);B(X(19.5),0,10,.6,2.1,2.2,mw);
+mkKey(X(6),.8,3.5,'a2k1','Ключ от спальни',0xd4af37);
+mkKey(X(18),.52,4.3,'a2k2','Ключ от гостиной',0xb87333);
+B(X(11),0,18.7,2,.75,.9,mw);B(X(7.6),0,17,.4,2.1,2.4,mw);B(X(19.4),0,18,.9,2.1,1.6,mw);B(X(16),0,15,.8,.8,.8,mw);B(X(6),0,16,.5,.5,1.6,mw);
+mkKey(X(11),.82,18.7,'a2k3','Ключ от входа',0xe05030);
+[[X(19.4),2.5,{cx:X(19.4),cy:1.3,cz:2.5,y:PI/2,ex:X(18.2),ez:2.5,ey:PI/2,k:1},'Спрятаться в шкафу'],[X(15),1.3,{cx:X(15),cy:.3,cz:1.3,y:PI,ex:X(15),ez:2.9,ey:PI,k:2},'Спрятаться под кроватью'],[X(19.4),18,{cx:X(19.4),cy:1.3,cz:18,y:PI/2,ex:X(18.2),ez:18,ey:PI/2,k:1},'Спрятаться в шкафу']].forEach(([x,z,h,t])=>IT.push({p:new V(x,1.4,z),r:2.5,w:1,l:()=>window.A2&&st=='play'?t:null,f:()=>hideIn(h)}));
+/* дед */
+const DED=new THREE.Group(),dsk=mc(0xd9b99b,.8),dvs=mc(0x2f4a6b,.9),dhr=mc(0xdddddd,.9),dpn=mc(0x3b3b2f,.9),dey=mc(0xffc400,.5,{emissive:0xffa000,emissiveIntensity:1});
+const dl=x=>{const l=new THREE.Group();l.position.set(x,.8,0);DED.add(l);gb(.2,.8,.2,dpn,0,-.4,0,l);return l},dL=dl(-.17),dR=dl(.17);
+gb(.8,1,.5,dvs,0,1.3,0,DED);gb(.46,.5,.46,dsk,0,2.05,0,DED);gb(.5,.1,.5,dhr,0,2.3,0,DED);gb(.1,.3,.46,dhr,-.28,2.12,0,DED);gb(.1,.3,.46,dhr,.28,2.12,0,DED);
+gb(.34,.07,.04,dhr,0,1.92,.25,DED);gb(.08,.08,.03,dey,-.12,2.1,.24,DED);gb(.08,.08,.03,dey,.12,2.1,.24,DED);gb(.6,.14,.5,mc(0x5a3a22,.9),0,2.42,0,DED);
+[-.5,.5].forEach(x=>{const a=new THREE.Group();a.position.set(x,1.7,0);a.rotation.x=-1.3;DED.add(a);gb(.16,.7,.16,dsk,0,-.35,0,a)});
+DED.scale.setScalar(.9);DED.visible=false;scene.add(DED);window.A2D=DED;
+const GN2=[[4,2.5],[4,4.2],[4,6],[10,2.5],[10,4.2],[10,6],[16.5,2.5],[16,4.2],[16,6],[3.5,8.5],[3.5,11.5],[13,6],[13,8.3],[13,11],[17,12],[10,12],[10,15.5],[12.5,17.2],[17,17.5],[3.5,17]].map(p=>[X(p[0]),p[1]]),
+E2=[[0,1],[1,2],[3,4],[4,5],[6,7],[7,8],[2,5],[5,11],[11,8],[2,9],[9,10],[11,12],[12,13],[13,14],[13,15],[15,16],[16,17],[17,18],[10,19]],adj2=GN2.map((_,i)=>E2.filter(e=>e.includes(i)).map(e=>e[0]==i?e[1]:e[0])),
+route2=(a,b)=>{const q=[[a]],seen={[a]:1};while(q.length){const p=q.shift(),n=p[p.length-1];if(n==b)return p.slice(1);for(const m of adj2[n])if(!seen[m]){seen[m]=1;q.push([...p,m])}}return[]},
+D2={m:'patrol',ls:[0,0],t:0,ph:0,fd:0,path:[],w:1,g0:0,f:0,rp:0};
+const nearD=(x,z)=>{let b=0,bd=1e9;GN2.forEach((n,i)=>{const d=Math.hypot(n[0]-x,n[1]-z)+(clear(x,z,n[0],n[1])?0:50);if(d<bd){bd=d;b=i}});return b},
+rt=(x,z)=>route2(nearD(g.x,g.z),nearD(x,z));
+function dmove(tx,tz,sp,dt){const dx=tx-g.x,dz=tz-g.z,l=Math.hypot(dx,dz);if(l<.05)return;const s=Math.min(l,sp*dt),ox=g.x,oz=g.z;
+if(!hit2(g.x+dx/l*s,g.z,.3))g.x+=dx/l*s;if(!hit2(g.x,g.z+dz/l*s,.3))g.z+=dz/l*s;
+DED.rotation.y+=gang(Math.atan2(dx,dz)-DED.rotation.y)*Math.min(1,dt*8);const m=Math.hypot(g.x-ox,g.z-oz);D2.ph+=m*2.6;D2.fd+=m;
+if(D2.fd>1.2){D2.fd=0;try{snd.step()}catch(e){}}}
+function walk(sp,dt){if(!D2.path.length)return 0;const n=GN2[D2.path[0]];dmove(n[0],n[1],sp,dt);if(Math.hypot(n[0]-g.x,n[1]-g.z)<.4)D2.path.shift();return 1}
+/* дед СЛЕПОЙ: не видит, но отлично слышит бег и чувствует тебя вплотную */
+function dedTick(dt){
+const sw=Math.sin(D2.ph)*.7;dL.rotation.x=sw;dR.rotation.x=-sw;DED.position.set(g.x,0,g.z);
+if(!DF.gr||CH.fz||st=='end'||st=='caught')return;
+doors.forEach(o=>{if(!o.open&&!o.main&&Math.hypot(g.x-(o.col.a+.6),g.z-(o.col.c+.1))<1.4){o.locked=false;o.open=1;o.col.on=0;if(Math.hypot(P.x-g.x,P.z-g.z)<14)snd.creak()}});
+const hid=st=='hide',d=Math.hypot(P.x-g.x,P.z-g.z),sp=DF.sp;
+if(D2.g0>0){D2.g0-=dt;return}
+const hear=!hid&&!CH.inv&&loud&&d<13*DF.hear,feel=!hid&&!CH.inv&&d<2.3;
+if(hear||feel){if(D2.m!='chase')snd.growl();D2.m='chase';D2.ls=[P.x,P.z];D2.rp-=dt;if(D2.rp<=0||!D2.path.length){D2.path=rt(P.x,P.z);D2.rp=.5}}
+if(D2.m=='chase'){
+if(d<3.2&&clear(g.x,g.z,P.x,P.z,.2)&&(hear||feel))dmove(P.x,P.z,4.2*sp,dt);
+else if(!walk(4.2*sp,dt)){if(Math.hypot(D2.ls[0]-g.x,D2.ls[1]-g.z)>.7)dmove(D2.ls[0],D2.ls[1],4.2*sp,dt);else{D2.m='search';D2.t=0}}}
+else if(D2.m=='search'){D2.t+=dt;DED.rotation.y+=dt*1.8;if(hid&&d<2.8){D2.f+=dt;if(D2.f>1.3){caught();return}}else D2.f=0;if(D2.t>5){D2.m='patrol';D2.w=1}}
+else{if(!walk(2.1*sp,dt)){D2.w-=dt;if(D2.w<=0){D2.path=route2(nearD(g.x,g.z),[0,3,6,10,13,14,16,18,19][Math.random()*9|0]);D2.w=1+Math.random()*2}}}
+if(!hid&&d<.95)caught()}
+/* --- запуск акта 2 --- */
+function a2Begin(){window.A2=1;window.OUT=0;window.GMG=0;reset();hide('load');show('hud');st='play';env(0);fl.intensity=1.6;lock();
+G.visible=false;DED.visible=true;g.st='patrol';g.x=GN2[13][0];g.z=GN2[13][1];Object.assign(D2,{m:'patrol',g0:5,f:0,path:[],w:1});DED.rotation.y=PI/2;gTick=dedTick;
+[[4,2.5],[16,2.5],[3.5,12],[13,10]].forEach(([x,z],i)=>PL[i].position.set(X(x),2.5,z));
+P.set(X(4),1.6,2.5);yaw=PI;pit=0;upd();msgL('АКТ 2 · Дом деда 👴 Найди ключи и выберись',4500)}
+const _b=begin;begin=function(){if(ACT==2&&!window.ONL&&!NET.on){a2Begin();return}
+window.A2=0;DED.visible=false;[[3.5,3],[16,3],[6.5,11],[16.5,11]].forEach(([x,z],i)=>PL[i].position.set(x,2.5,z));gTick=_gT;_b();if(!window.GMG&&!window.ONL&&!NET.on)startCine(21,()=>{show('hud');lock();msg('Ты проснулся в спальне. Гренни спит в гостиной... Беги! 🕑')})};
+const _u=upd;upd=function(){_u();if(window.A2)$('obj').textContent='Акт 2: '+(!has('a2k1')?'найди ключ на кухне':!has('a2k2')?'найди ключ в спальне':!has('a2k3')?'найди ключ от входа: гостиная → кабинет на юге':'беги к входной двери! Дед слепой, но слышит — не бегай')};
+const _ef=animTick;animTick=function(dt){_ef(dt);if(window.A2&&st=='play'&&P.z>20.6&&P.x>X(1.5)&&P.x<X(5.5))ending(1)};
+/* --- концовки и переходы --- */
+const ov=(t,s,b1,f1,b2,f2)=>{endPrev=st;st='end';['hud','hint','hv','tg','code','cams','call'].forEach(i=>hide(i));try{document.exitPointerLock&&document.exitPointerLock()}catch(e){}
+$('a2t').textContent=t;$('a2s').textContent=s;[['a2b1',b1,f1],['a2b2',b2,f2]].forEach(([i,tx,f])=>{const e=$(i);e.classList.toggle('hid',!tx);if(tx){e.textContent=tx;e.onclick=()=>{hide('a2o');f()}}});show('a2o')};
+$('a2b3').onclick=()=>{hide('a2o');window.A2=0;DED.visible=false;st='menu';show('menu');env(.8);fl.intensity=0;menuUI()};
+const setAct=n=>{ACT=n;LS.set('pdd_act',n)};
+let a2w=0;
+CIN[20]={dur:6,init(){P.set(X(3.5),1.6,17.4);yaw=PI;pit=0;fl.intensity=1.2;EXD.locked=false;EXD.open=0;EXD.col.on=1;DED.visible=true;g.x=X(3.5);g.z=11.5;DED.position.set(g.x,0,g.z);DED.rotation.y=PI;CN.m=0},
+step(t,dt){if(t>.6&&!EXD.open){EXD.open=1;EXD.col.on=0;snd.creak()}
+const u=cl01((t-1)/3.2),r=cl01((t-.8)/3);P.z=17.4+u*5.5;P.y=1.6+Math.sin(t*9)*.04;env(cl01((t-2)/3)*.8);fl.intensity=1.2*(1-u*.6);
+g.z=11.5+r*7;DED.position.set(g.x,0,g.z);dL.rotation.x=r>0&&r<1?Math.sin(t*12)*.7:0;dR.rotation.x=-dL.rotation.x;if(r>=1)DED.rotation.z=Math.sin(t*10)*.12;
+if(t>3)yaw+=gang(0-yaw)*Math.min(1,dt*3);
+if(t>.3&&CN.m<1){CN.m=1;msgL('Дед: «Кто тут?! Стой!»',2200);snd.growl()}if(t>3.8&&CN.m<2){CN.m=2;msgL('Дед: «Ну я тебе ещё покажу!»',2000)}},
+done(){DED.rotation.z=0;DED.visible=false;env(.8)}};
+function a2End(n){if(st=='end')return;if(n==1){if(!a2w){a2w=1;startCine(20,()=>a2End(1));return}a2w=0}const win=n==1;if(win)LS.set('pdd_a2w',(+LK('pdd_a2w')||0)+1);
+ov(win?'🏆 АКТ 2 ПРОЙДЕН':n==2?'ДЕД ПОЙМАЛ ТЕБЯ':n==3?'РАССВЕТ... ДЕД УЛЁГСЯ':'ТЫ ЗАСНУЛ',win?'Ты выскользнул из дома деда. Побед в акте 2: '+(+LK('pdd_a2w')||0):n==2?'Дед крепко взял тебя за ухо.':n==3?'Наступило утро, а выхода ты так и не нашёл.':'Нельзя стоять на месте.','ЕЩЁ РАЗ В АКТЕ 2',play,'▶ ВЕРНУТЬСЯ В АКТ 1',()=>{setAct(1);play()});
+if(win)[523,659,784].forEach((f,i)=>T(f,1.4,'sine',.12,0,i*.25));else snd.growl()}
+const _E=ending;ending=function(n){
+if(n==18){startCine(18,()=>ov('🪖 СВО приехало','Бабку забрали «на сборы». Она прихватила пирожки. Секретная концовка!','ЕЩЁ РАЗ',play,'',null));return}
+if(window.A2){a2End(n);return}
+if(window.ONL||window.GMG||NET.on){_E(n);return}
+if(n==1&&st=='exit'){ENDS.add(1);LS.set('pdd_e',JSON.stringify([...ENDS]));updTab();menuUI();st='play';goOut();P.set(16.5,1.6,18);yaw=PI;doors[4].open=0;doors[4].col.on=1;
+msgL('Ты вышел через дверь 🚪 Во дворе можно гулять: к зелёным воротам — или обратно в дом',5200);return}
+if(n==7){ENDS.add(7);LS.set('pdd_e',JSON.stringify([...ENDS]));updTab();menuUI();
+ov('🌙 АКТ 1 ПРОЙДЕН','Ты дошёл до дороги. Но вдалеке горит окно другого дома... Там живёт Дед. Начинается акт 2.','▶ АКТ 2: ДОМ ДЕДА',()=>{setAct(2);play()},'🔁 ЕЩЁ РАЗ АКТ 1',()=>{setAct(1);play()});snd.take();return}
+_E(n)};
+IT.push({p:new V(16.5,1.1,14.7),r:2.4,w:1,l:()=>window.OUT&&!window.A2&&st=='play'?'Вернуться в дом 🚪':null,f:()=>{window.OUT=0;P.set(16.5,1.6,12.6);py=1.6;vy=0;yaw=0;pit=0;hT='';env(0);fl.intensity=1.6;doors[4].open=0;doors[4].col.on=1;snd.creak();upd();msg('Ты вернулся в дом')}});
+/* --- вступительная сцена: «заброшка» --- */
+const FA=[0,1,2].map(()=>{const a=mkAv();a.visible=false;scene.add(a);return a});
+const fo=document.createElement('div');fo.style.cssText='position:fixed;inset:0;background:#000;opacity:0;pointer-events:none;z-index:40';document.body.appendChild(fo);
+const sk=document.createElement('button');sk.className='b';sk.textContent='ПРОПУСТИТЬ ⏭';sk.style.cssText='position:fixed;right:10px;bottom:12px;z-index:41;min-width:0;display:none';document.body.appendChild(sk);
+sk.onclick=()=>{if(CN&&CN.n==21)CN.t=99};
+CIN[21]={dur:17,init(){fo.style.transition='none';fo.style.opacity=0;sk.style.display='block';env(.8);fl.intensity=.5;P.set(16.5,1.6,27);yaw=0;pit=0;G.visible=true;G.rotation.set(-PI/2,0,0);G.position.set(8,.3,11.5);doors[4].open=0;doors[4].col.on=1;FA.forEach(a=>a.visible=true);CN.m=0;CN.d=0},
+step(t,dt){const k=(i,tx)=>{if(t>tx&&CN.m<i){CN.m=i;return 1}return 0};
+if(t<4){const w=cl01(t/4);P.z=27-w*(2-w)*7.5}else if(t<8.5){P.z=19.5-cl01((t-4)/4.5)*7.3}else{P.z=12.2;yaw+=gang(lookY(16.5,12.2,8,11.5)-yaw)*Math.min(1,dt*2.5)}
+if(t>3.6&&!CN.d){CN.d=1;doors[4].open=1;doors[4].col.on=0;snd.creak()}
+P.y=1.6+(t<8.5?Math.sin(t*8)*.03:0);
+FA.forEach((a,i)=>{const c=cl01((t-13)/.8);a.position.set(P.x+(i-1)*1.1,t>13?.1*c:0,P.z+1.3+(i%2)*.5);a.rotation.y=PI;a.rotation.z=PI/2*c});
+const r=cl01((t-9)/1.8);G.rotation.x=-PI/2*(1-r);G.position.y=.3*(1-r);if(t>9)G.rotation.y=Math.atan2(P.x-8,P.z-11.5);if(t>11)G.position.x=8+cl01((t-11)/3)*4;
+fo.style.opacity=cl01((t-12.2)/2.2);
+if(k(1,.4))msgL('Друг: «Смотрите, заброшка! Заходим?»',2400);if(k(2,2.8))msgL('Ты: «Говорят, тут сто лет никто не живёт...»',2400);
+if(k(3,5.2))msgL('Друг: «Странно, внутри всё как жилое...»',2400);if(k(4,8))msgL('Друг: «Тихо... там кто-то лежит?»',2000);
+if(k(5,9.3)){snd.growl();msgL('Гренни: «Незваные гости? Чайку, милые... 🍵»',2800)}if(k(6,12.6))msgL('Ты: «Что-то... в сон клонит... 💤»',2200);if(k(7,14.8))msgL('Ты просыпаешься один в чужой спальне...',2200)},
+done(){sk.style.display='none';FA.forEach(a=>{a.visible=false;a.rotation.z=0});reset();fo.style.transition='opacity 1.6s';requestAnimationFrame(()=>fo.style.opacity=0)}};
+/* --- СВО по телефону --- */
+const C3=[{d:'Дежурный по части. Назовите объект и обстановку.',o:[['Объект «Бабка». Ночью бродит по дому, нужен срочный выезд!',1],['Алло, это Ленин?',0],['Бабка вышла из-под контроля, прошу помощи!',1]]},{d:'Принял. Объект вооружён?',o:[['Тапком и суровым характером.',1],['Пирожками. Очень горячими.',1],['Нет, я просто так звоню.',0]]},{d:'Группа выдвигается. Ожидайте у входа, не шумите.',o:[['Принято. Жду, командир!',1],['Не надо никого присылать!',0],['Только тихо, она спит!',1]]}];
+const cs=document.createElement('button');cs.id='cl_s';cs.className='b';cs.textContent='🪖 ПОЗВОНИТЬ В СВО';$('cl_g').insertAdjacentElement('afterend',cs);
+cs.onclick=()=>{if(st!='call')return;xCK=18;CALL.splice(0,9,...C3);cN=0;cS=0;cB=0;$('cl_t').innerHTML='';cnode()};
+CIN[18]={dur:CIN[5].dur,init(){CIN[5].init();CN.q=0},step(t,dt){CIN[5].step(t,dt);if(t>1.2&&CN.q<1){CN.q=1;msgL('Командир: «Объект «Бабка», выходите по одному!»',2400)}if(t>3.6&&CN.q<2){CN.q=2;msgL('Гренни: «Куда это вы меня, служивые?»',2200)}if(t>5&&CN.q<3){CN.q=3;msgL('Бабку забрали «на сборы» 🪖',1400)}},done(){CIN[5].done&&CIN[5].done()}};
+/* --- переключатель акта в меню «ИГРАТЬ» --- */
+const ab=document.createElement('button');ab.id='pl_ac';ab.className='b';$('pl_md').insertAdjacentElement('afterend',ab);
+const lab=()=>{ab.textContent='🎬 АКТ: '+(ACT==2?'2 · Дед':'1 · Гренни')};lab();
+ab.onclick=()=>{setAct(ACT==2?1:2);lab();plUI()};
+const _p=plUI;plUI=function(){_p();lab();$('pl_info').textContent+=' · '+(ACT==2?'Акт 2 (Дед)':'Акт 1 (Гренни)')};
+const mview=()=>{if(st!='pmenu')return;G.visible=ACT!=2;DED.visible=ACT==2;DED.position.set(8,0,11.5);DED.rotation.set(0,-3*PI/4,0);dL.rotation.x=dR.rotation.x=0};
+const _pv=pmView;pmView=function(){_pv();mview()};
+ab.addEventListener('click',mview);$('pl_bk').addEventListener('click',()=>{DED.visible=false;G.visible=true});
+let BRT=LK('pdd_br')=='1';const bb=document.createElement('button');bb.className='b';$('md_bk').insertAdjacentElement('beforebegin',bb);
+const bl=()=>{bb.textContent='💡 ВИДНО ВСЁ: '+(BRT?'ВКЛ':'ВЫКЛ')};bl();bb.onclick=()=>{BRT=!BRT;LS.set('pdd_br',BRT?'1':'0');bl();env(st=='play'?(window.OUT?.8:0):.8)};
+const _env=env;env=function(k){_env(k);if(BRT){amb.intensity=Math.max(amb.intensity,1.6);scene.fog.density=.004}};
+const _rr=reset;reset=function(){_rr();D2.m='patrol'};
+})();
+</script>
+<script>
+/* ===== v19: ДРОН В ТЕЛЕФОНЕ (STUN — «смерть» на сек., FLY — заряд дрона, COOL — перезарядка) ===== */
+(function(){
+const STUN=30,FLY=40,COOL=60,ov=$('drn'),dcam=new THREE.PerspectiveCamera(82,1,.05,160),dl=new THREE.PointLight(0xbfd8ff,0,11,2),
+DR={on:0,x:0,y:1.5,z:0,vx:0,vy:0,vz:0,yw:0,pt:0,bz:0,bat:0,stun:0,cool:0,prev:'',hit:0,ht:0,up:0,dw:0,bu:0},ptr={},
+cl=(v,a,b)=>Math.max(a,Math.min(b,v)),canD=()=>!window.ONL||(NET.mode==3&&NET.host),A=()=>!!window.A2,pm=t=>{$('phm').textContent=t};
+dcam.add(dl);scene.add(dcam);
+/* --- телефон: экран приложений --- */
+function pRef(){const c=DR.cool;$('ap_d').classList.toggle('off',c>0);$('apd').textContent=c>0?'🔋 '+Math.ceil(c)+'с':'Дрон';$('pht_t').textContent=$('clk').textContent}
+function phoneOpen(){st='call';jx=jy=0;pm('');show('phn');pRef()}
+const _cs=callStart;callStart=function(){window.GMG?_cs():phoneOpen()};
+$('ap_c').onclick=()=>{hide('phn');_cs()};
+$('ph_x').onclick=()=>{hide('phn');if(st=='call'){st='play';lock()}};
+$('ap_d').onclick=()=>{if(!canD()){pm('📡 Нет сигнала: дрон работает в одиночной игре и у хозяина сервера');return}
+if(DR.cool>0){pm('🔋 Дрон заряжается: ещё '+Math.ceil(DR.cool)+' с');return}hide('phn');droneOn()};
+/* --- полёт --- */
+function droneOn(){DR.on=1;DR.hit=0;DR.x=P.x;DR.y=1.5;DR.z=P.z;DR.vx=DR.vy=DR.vz=0;DR.yw=yaw;DR.pt=0;DR.bz=0;DR.bat=FLY;st='drone';jx=jy=0;
+hide('hud');hide('hint');show('drn');dl.intensity=1.5;$('dwn').textContent='';
+$('dhn').textContent=touch?'Слева — лететь · справа — смотреть · ▲▼ высота':'WASD — лететь · Пробел / Shift — вверх / вниз · зажми мышь — смотреть · Esc — назад';
+setTimeout(()=>{if(DR.on&&!DR.hit)$('dhn').textContent=A()?'Влети в деда: он умрёт на '+STUN+' с':'Влети в Гренни: она умрёт на '+STUN+' с'},6000)}
+function droneOff(abort,nolock){if(!DR.on)return;DR.on=0;dl.intensity=0;hide('drn');for(const k in ptr)delete ptr[k];DR.up=DR.dw=0;hT='';
+if(!abort){st='play';show('hud');if(!nolock)lock()}else if(st=='caught')show('hud')}
+function stunOn(){DR.hit=1;DR.ht=1.1;DR.prev=g.st;g.st='stun';DR.stun=STUN;DR.cool=COOL;
+const f=$('dfl');f.classList.remove('on');void f.offsetWidth;f.classList.add('on');$('dwn').textContent='💥';
+try{T(220,.6,'sawtooth',.25,40);N(.5,.6,900);T(90,.9,'square',.12,30,.05)}catch(e){}}
+function droneStep(dt){
+tick(dt);if(!DR.on||st!='drone')return;
+const tg=A()?window.A2D:G,f=(K.KeyW||K.ArrowUp?1:0)-(K.KeyS||K.ArrowDown?1:0),r=(K.KeyD||K.ArrowRight?1:0)-(K.KeyA||K.ArrowLeft?1:0);
+let mx=r,mz=-f;for(const k in ptr){const p=ptr[k];if(p.k=='m'){mx+=p.mx;mz+=p.mz}}
+if(DR.hit){DR.ht-=dt;mx=mz=0}
+const n=Math.hypot(mx,mz);if(n>1){mx/=n;mz/=n}
+const s=Math.sin(DR.yw),c=Math.cos(DR.yw),q=Math.min(1,dt*5),ty=(K.Space||DR.up?1:0)-(K.ShiftLeft||K.ShiftRight||K.KeyC||DR.dw?1:0);
+DR.vx+=((c*mx+s*mz)*4.4-DR.vx)*q;DR.vz+=((c*mz-s*mx)*4.4-DR.vz)*q;DR.vy+=((DR.hit?0:ty)*2.2-DR.vy)*q;
+const nx=DR.x+DR.vx*dt,nz=DR.z+DR.vz*dt;if(!hit2(nx,DR.z,.25))DR.x=nx;else DR.vx=0;if(!hit2(DR.x,nz,.25))DR.z=nz;else DR.vz=0;
+DR.y=cl(DR.y+DR.vy*dt,.25,2.75);DR.bz+=(-mx*.1-DR.bz)*q;
+const sh=DR.hit?Math.sin(DR.ht*70)*.06*Math.max(0,DR.ht):0;
+dcam.position.set(DR.x,DR.y,DR.z);dcam.rotation.set(DR.pt+sh,DR.yw+sh,DR.bz,'YXZ');
+if(dcam.aspect!==cam.aspect){dcam.aspect=cam.aspect;dcam.updateProjectionMatrix()}
+if(DR.hit){if(DR.ht<=0){droneOff(0);msgL('💀 '+(A()?'Дед отключился':'Гренни отключилась')+' на '+STUN+' с! Дрон разбит, зарядка '+COOL+' с',4500)}return}
+if(DR.stun<=0&&tg.visible){const lay=g.st=='sleep'||g.st=='rise';if(Math.hypot(DR.x-g.x,(DR.y-(lay?.5:1.2))*.8,DR.z-g.z)<.85){stunOn();return}}
+DR.bat-=dt;if(DR.bat<=0){DR.cool=COOL;droneOff(0);msgL('🔋 Дрон разрядился. Зарядка '+COOL+' с',3500);return}
+$('dbat').textContent=Math.ceil(DR.bat);$('dck').textContent=$('clk').textContent;
+$('dwn').textContent=(DR.stun<=0&&g.st!='sleep'&&Math.hypot(P.x-g.x,P.z-g.z)<5.5)?'⚠ '+(A()?'Дед':'Гренни')+' рядом с тобой!':'';
+if((DR.bu-=dt)<=0){DR.bu=.16;T(120+Math.hypot(DR.vx,DR.vz)*14,.12,'sawtooth',.02)}}
+/* --- управление дроном --- */
+ov.addEventListener('contextmenu',e=>e.preventDefault());
+ov.addEventListener('pointerdown',e=>{if(e.target.closest('button'))return;e.preventDefault();try{ov.setPointerCapture(e.pointerId)}catch(_){}
+ptr[e.pointerId]={k:e.pointerType=='touch'&&e.clientX<innerWidth*.45?'m':'l',x:e.clientX,y:e.clientY,ox:e.clientX,oy:e.clientY,mx:0,mz:0}});
+ov.addEventListener('pointermove',e=>{const p=ptr[e.pointerId];if(!p)return;
+if(p.k=='m'){let a=(e.clientX-p.ox)/55,b=(e.clientY-p.oy)/55;const l=Math.hypot(a,b);if(l>1){a/=l;b/=l}p.mx=a;p.mz=b}
+else{const u=e.pointerType=='touch'?1.6:1;DR.yw-=(e.clientX-p.x)*u*.0022*sens;DR.pt=cl(DR.pt-(e.clientY-p.y)*u*.0022*sens,-1.4,1.4);p.x=e.clientX;p.y=e.clientY}});
+const pe=e=>{delete ptr[e.pointerId]};ov.addEventListener('pointerup',pe);ov.addEventListener('pointercancel',pe);
+[['dup','up'],['ddn','dw']].forEach(([id,k])=>{const b=$(id);b.addEventListener('pointerdown',e=>{e.preventDefault();e.stopPropagation();DR[k]=1});
+['pointerup','pointercancel','pointerleave'].forEach(n=>b.addEventListener(n,()=>{DR[k]=0}))});
+$('dx').onclick=()=>droneOff(0);
+addEventListener('keydown',e=>{if(st!='drone')return;if(e.code=='Escape'||e.code=='KeyQ'){e.preventDefault();droneOff(0)}else if(e.code=='Space')e.preventDefault()});
+/* --- камера дрона вместо камеры игрока --- */
+{const _r=R.render;R.render=function(s,c){return _r.call(this,s,DR.on&&c===cam?dcam:c)}}
+/* --- «смерть» бабки/деда: ИИ замирает, тело лежит STUN сек., потом встаёт --- */
+{const _tk=tick;tick=function(dt){
+if(DR.cool>0)DR.cool=Math.max(0,DR.cool-dt);
+if(DR.stun>0){DR.stun-=dt;const ac=A(),tg=ac?window.A2D:G,sl=DR.prev=='sleep';
+if(DR.stun>0){const lie=sl?1:Math.min(1,(STUN-DR.stun)/.5,DR.stun/1.2);tg.rotation.x=-PI/2*lie;tg.position.y=(ac?.28:.3)*lie;
+const gt=gTick;gTick=function(){};try{_tk(dt)}finally{gTick=gt}return}
+DR.stun=0;g.st=(sl||ac)?DR.prev:'patrol';if(!sl){tg.rotation.x=0;tg.position.y=0;if(!ac){g.w=.5;g.path=[]}}
+msg((ac?'Дед очнулся':'Гренни очнулась')+'! 😱')}
+_tk(dt)}}
+{const _an=animTick;animTick=function(dt){_an(dt);
+if(DR.on){if(st=='drone')droneStep(dt);else droneOff(1)}else if(st=='drone')st='play';
+const ph=$('phn');if(!ph.classList.contains('hid')){if(st!='call')hide('phn');else pRef()}
+const sn=$('stn');if(DR.stun>0&&/^(play|hide|call|drone|ui|tap|cams)$/.test(st)){const t=(A()?'💀 Дед: ':'💀 Гренни: ')+Math.ceil(DR.stun)+' с';if(sn.textContent!==t)sn.textContent=t;sn.classList.remove('hid')}else sn.classList.add('hid')}}
+{const _rs=reset;reset=function(){_rs.apply(this,arguments);droneOff(1);DR.stun=0;DR.cool=0;DR.hit=0;if(window.A2D){window.A2D.rotation.x=0;window.A2D.position.y=0}}}
+{const _en=ending;ending=function(n){if(DR.on&&st=='drone')droneOff(0,1);return _en.apply(this,arguments)}}
+/* --- Акт 2: в доме деда сейфа нет — телефон лежит на кухонном столе рядом с ключом --- */
+{const OX=100,m=new THREE.Mesh(bg,mc(0x1a1f2b,.3,{emissive:0x3a6aff,emissiveIntensity:.9}));m.scale.set(.1,.012,.18);m.position.set(OX+5.5,.73,3.5);m.rotation.y=.5;scene.add(m);items.push(m);
+IT.push({p:new V(OX+5.5,.8,3.5),r:2.6,l:()=>window.A2&&m.visible&&st=='play'?'Взять: Телефон':null,f:()=>{take('ph','Телефон','📱',m);msgL('Телефон! Нажми 📲 (или P): там приложение 🚁 Дрон',4500)}})}
+})();
+</script>
+</body></html>
