@@ -524,17 +524,17 @@ let my=host?{host:1}:{host:0},remP=null,remAt=0,hd=null,locked=null,coll=0,ls=0,
 const list=()=>[{kind:'viewer',isMe:true,presence:my},...(remP?[{kind:'viewer',isMe:false,presence:remP}]:[])];
 const emit=(l=[])=>hd&&hd({peers:list(),joined:[],left:l,updated:[]});
 const send=f=>{const n=Date.now();if(!f&&n-ls<100)return;const pj=JSON.stringify(my);if(!f&&pj===lp&&n-ls<1000)return;lp=pj;ls=n;const m='{"s":"'+sid+'","n":'+(++seq)+',"p":'+pj+'}';cls.forEach(c=>{if(c.connected)try{c.publish(mine,m)}catch(e){}})};
-const net={presence(p){for(const k in p){if(p[k]===null)delete my[k];else my[k]=p[k]}send(p&&p.ch);return Promise.resolve()},peers:list,links:()=>cls.filter(c=>c.connected).length+'/'+BR.length,
+const net={presence(p){for(const k in p){if(p[k]===null)delete my[k];else my[k]=p[k]}send(p&&(p.ch||p.go||p.rt||p.mode!=null));return Promise.resolve()},peers:list,links:()=>cls.filter(c=>c.connected).length+'/'+BR.length,
 onPeers(f){hd=f;setTimeout(()=>emit(),0);return()=>{}},leave(){if(dead)return Promise.resolve();dead=1;ints.forEach(f=>typeof f=='function'?f():clearInterval(f));document.removeEventListener('visibilitychange',vis);const b=JSON.stringify({s:sid,n:++seq,p:my,b:1});cls.forEach(c=>{try{if(c.connected){c.publish(mine,b);if(ann0)c.publish(LT,'',{retain:true})}c.end(false)}catch(e){}});return Promise.resolve()}};
 const conn=url=>new Promise(r=>{let d=0;const c=mqtt.connect(url,{connectTimeout:5000,reconnectPeriod:2000,keepalive:20,clean:true,will:WL}),f=v=>{if(!d){d=1;if(!v)try{c.end(true)}catch(e){}r(v?c:null)}};c.on('connect',()=>f(1));c.on('error',()=>f(0));c.on('close',()=>f(0));setTimeout(()=>f(0),6000)});
 const onMsg=(t,m)=>{let d;try{d=JSON.parse(m.toString())}catch(e){return}if(!d||!d.p)return;
 if(d.n<=(seen[d.s]||0))return;seen[d.s]=d.n;
 if(host&&t==base+'h'&&d.s!==sid){coll=1;return}if(t!==theirs)return;
 if(host){if(locked&&locked!==d.s){if(Date.now()-remAt<4000)return;remP=null}locked=d.s}
-if(d.b){remP=null;if(host)locked=null;emit([{}]);return}
+if(d.b){if(d.p&&d.p.rt){remP=d.p;remAt=Date.now();emit()}remP=null;if(host)locked=null;emit([{}]);return}
 remP=d.p;remAt=Date.now();emit()};
 const vis=()=>{if(!document.hidden&&!dead){remAt=lt=Date.now();send(1);if(host)ann()}};document.addEventListener('visibilitychange',vis);
-const ann=()=>{ann0=1;const m=my.go?'':JSON.stringify({c:code,m:my.mode||1,n:remP?2:1,t:Date.now()});cls.forEach(c=>{if(c.connected)try{c.publish(LT,m,{retain:true})}catch(e){}})};const live=()=>{if(host){ann();ints.push(mkTick(ann,4000))}ints.push(mkTick(()=>send(1),1000),mkTick(()=>{const n=Date.now(),late=n-lt>2500;lt=n;if(late){remAt=n;return}if(remP&&n-remAt>4500&&n-lastRc>12000){lastRc=n;cls.forEach(c=>{try{if(c.connected)c.reconnect()}catch(e){}})}if(remP&&n-remAt>30000){remP=null;locked=null;emit([{}])}},1000))};
+const ann=()=>{ann0=1;const m=my.go?'':JSON.stringify({c:code,m:my.mode||1,n:remP?2:1,t:Date.now()});cls.forEach(c=>{if(c.connected)try{c.publish(LT,m,{retain:true})}catch(e){}})};const live=()=>{if(host){ann();ints.push(mkTick(ann,4000))}ints.push(mkTick(()=>send(1),1000),mkTick(()=>{const n=Date.now(),late=n-lt>2500;lt=n;if(late){remAt=n;NET.rx=n;return}if(remP&&n-remAt>4500&&n-lastRc>12000){lastRc=n;cls.forEach(c=>{try{if(c.connected)c.reconnect()}catch(e){}})}if(remP&&n-remAt>30000){remP=null;locked=null;emit([{}])}},1000))};
 const att=c=>{c.on('message',onMsg);c.on('connect',()=>{send(1)});c.subscribe(host?[base+'h',base+'g']:theirs)};
 await new Promise(res=>{let pend=BR.length,t=0;const fin=()=>{clearTimeout(t);res()};BR.forEach(u=>conn(u).then(c=>{if(c){if(dead){try{c.end(true)}catch(e){}}else{cls.push(c);att(c)}if(!t)t=setTimeout(fin,1500)}if(--pend==0)fin()}))});
 if(!cls.length){dead=1;no('network');return}
@@ -572,6 +572,8 @@ const pp=remPred(r,m?'gx':'x',m?'gz':'z',m?'gvx':'vx',m?'gvz':'vz',m?'g':'p');re
 if(sl){G.rotation.set(-PI/2,0,0);G.position.set(g.x,.3,g.z)}else{G.rotation.set(0,m?r.gr:r.yaw+PI,0);G.position.set(g.x,0,g.z)}
 if(!sl&&st!='hide'&&!CH.god&&Math.hypot(P.x-g.x,P.z-g.z)<.95)caught()}
 function netTick(){if(!NET.room||!NET.on)return;
+/* игра могла зависнуть (загрузка, низкий FPS) — сообщения друга ещё не обработаны, это не потеря связи */
+const nn=Date.now(),gap=nn-(NET.tkAt||nn);NET.tkAt=nn;if(gap>1200)NET.rx=nn;if(!NET.t0)NET.t0=nn;
 const nw=performance.now(),pv=NET.pv||(NET.pv={x:P.x,z:P.z,gx:g.x,gz:g.z,t:nw}),dtv=Math.max(.02,(nw-pv.t)/1000),cvv=v=>Math.max(-10,Math.min(10,v)),vx=st=='hide'?0:cvv((P.x-pv.x)/dtv),vz=st=='hide'?0:cvv((P.z-pv.z)/dtv);
 const p={x:+P.x.toFixed(2),z:+P.z.toFixed(2),yaw:+yaw.toFixed(2),py:st=='hide'?0:1,vx:+vx.toFixed(1),vz:+vz.toFixed(1)};
 if(NET.mode==3&&NET.host){p.gx=+g.x.toFixed(2);p.gz=+g.z.toFixed(2);p.gr=+G.rotation.y.toFixed(2);p.gs=g.st;p.gvx=+cvv((g.x-pv.gx)/dtv).toFixed(1);p.gvz=+cvv((g.z-pv.gz)/dtv).toFixed(1)}
@@ -628,7 +630,7 @@ FN=()=>NET.mode==3||NET.role=='granny'?'Друг':'Бабка-друг',
 invMask=()=>IDS.reduce((a,id,b)=>a|(has(id)?1<<b:0),0);
 function feedAdd(t){const l=$('chl');if(!l)return;const d=document.createElement('div');d.className='chm';d.textContent=t;l.appendChild(d);while(l.children.length>5)l.removeChild(l.firstChild);setTimeout(()=>d.remove(),9000)}
 function applyDoor(d,s){if(s==2){d.locked=false;d.open=1;d.col.on=0}else if(s==1){d.locked=false;d.open=0;d.col.on=1}else{d.locked=!!d.key&&!d.main;d.open=0;d.col.on=1}}
-function syncReset(){NET.warnEx=0;NET.t0=Date.now();NET.dk=[];NET.dv=[0,0,0,0];NET.rv=[0,0,0,0];NET.rps=0;NET.rpy=null;NET.lastGs='';NET.lastWk=0;NET.wk=0;NET.wb='';NET.wby='';NET.rx=Date.now();NET.lag=0}
+function syncReset(){NET.warnEx=0;NET.t0=0;NET.tkAt=0;NET.dk=[];NET.dv=[0,0,0,0];NET.rv=[0,0,0,0];NET.rps=0;NET.rpy=null;NET.lastGs='';NET.lastWk=0;NET.wk=0;NET.wb='';NET.wby='';NET.rx=Date.now();NET.lag=0}
 function worldOut(){
 const o={rn:st=='load'?0:(NET.rn||0),rq:NET.rq||0,ps:(st=='pause'||document.hidden)?1:0,ld:performance.now()-LDF<400?1:0,sf:safe.done?1:0},dr=[];
 for(let i=0;i<4;i++){const c=dst(doors[i]);if(NET.dk[i]==null)NET.dk[i]=c;if(c!=NET.dk[i]){NET.dv[i]=Math.max(NET.dv[i],NET.rv[i]||0)+1;NET.dk[i]=c}dr.push(c)}
