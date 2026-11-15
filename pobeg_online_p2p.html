@@ -70,19 +70,23 @@ label{display:block;width:min(70vw,320px)}input[type=range]{width:100%}
 </div>
 <div id="hv" class="hid"></div>
 <div id="msg" class="hid"></div>
-<div id="menu" class="s"><button id="f2" class="ib tr">⛶</button><h1>ПОБЕГ ИЗ ДОМА</h1><div id="df"></div><div id="ec"></div><button id="bp" class="b">ИГРАТЬ</button><button id="bpr" class="b">🎟 ПРОМОКОД</button><div style="position:absolute;bottom:3px;right:8px;font-size:11px;opacity:.5">онлайн v9</div><button id="bon" class="b">🌐 ОНЛАЙН</button><button id="bs" class="b">НАСТРОЙКИ</button><button id="bx" class="b">ВЫХОД</button></div>
+<div id="menu" class="s"><div id="news"></div><button id="f2" class="ib tr">⛶</button><h1>ПОБЕГ ИЗ ДОМА</h1><div id="ec"></div><button id="bp" class="b">ИГРАТЬ</button><button id="bpr" class="b">🎟 ПРОМОКОД</button><div style="position:absolute;bottom:3px;right:8px;font-size:11px;opacity:.5">онлайн v11</div><button id="bon" class="b">🌐 ОНЛАЙН</button><button id="bs" class="b">НАСТРОЙКИ</button><button id="bx" class="b">ВЫХОД</button></div>
 <div id="load" class="s hid"><h2>Загрузка...</h2><div id="pbar"><i id="bar"></i></div></div>
 <div id="pause" class="s hid"><h2>ПАУЗА</h2><button id="rs" class="b">ПРОДОЛЖИТЬ</button><button id="ps" class="b">НАСТРОЙКИ</button><button id="pm" class="b">В МЕНЮ</button></div>
 <div id="set" class="s hid"><h2>НАСТРОЙКИ</h2><label>Громкость<input id="vl" type="range" value="70"></label><label>Чувствительность<input id="sn" type="range" min="10" value="50"></label><button id="sb" class="b">НАЗАД</button></div>
 <div id="code" class="s hid"><h2 id="cd">••••</h2><div id="kp"></div><button id="cx" class="b">ЗАКРЫТЬ</button></div>
 <div id="over" class="s hid"><h1>ГРЕННИ ПОЙМАЛА ТЕБЯ</h1><button id="bo" class="b">ЕЩЁ РАЗ</button></div>
 <div id="end" class="s hid"><h1 id="et"></h1><div id="es"></div><button id="bc" class="b hid">ПРОДОЛЖИТЬ</button><button id="ba" class="b">ИГРАТЬ СНОВА</button><button id="bm" class="b">ГЛАВНОЕ МЕНЮ</button><div id="ec2"></div></div>
-<div id="pcode" class="s hid"><h2>🎟 ПРОМОКОД</h2><input id="pinp" placeholder="Введи промокод" autocomplete="off" autocapitalize="characters" spellcheck="false"><button id="pok" class="b">ПРИМЕНИТЬ</button><div id="pmsg" style="max-width:80vw"></div><button id="pback" class="b">НАЗАД</button></div>
+<div id="pcode" class="s hid"><h2>🎟 ПРОМОКОД</h2><input id="pinp" placeholder="Введи промокод" autocomplete="off" autocapitalize="characters" spellcheck="false"><button id="pok" class="b">ПРИМЕНИТЬ</button><div id="pmsg" style="max-width:80vw"></div><div id="ppick" class="hid"></div><button id="pback" class="b">НАЗАД</button></div>
 <div id="tg" class="s hid"><h2>🤫 Не разбуди Гренни!</h2><div id="tgc">0/10</div><div id="tgb"><i id="tgi"></i></div><button id="tgbtn" class="b">ТАП!</button><div>Тапай быстро — нужно 10 раз</div></div>
 <div id="cams" class="hid"><div id="cg"></div><button id="cx2" class="b">✕ ЗАКРЫТЬ</button></div>
 <div id="onl" class="s hid"><button id="f3" class="ib tr">⛶</button><h2>🌐 ОНЛАЙН</h2><button id="o_plus" class="b" style="font-size:40px;min-width:3em">＋</button><div id="o_opts" class="hid" style="display:flex;flex-direction:column;gap:10px"><button id="o_cr" class="b">СОЗДАТЬ СЕРВЕР</button><button id="o_ls" class="b">СПИСОК СЕРВЕРОВ</button><button id="o_jn" class="b">ПОДКЛЮЧИТЬСЯ ПО КОДУ</button></div><div id="o_jf" class="hid" style="display:flex;gap:8px"><input id="o_in" maxlength="5" placeholder="КОД" autocomplete="off" autocapitalize="characters" spellcheck="false" style="user-select:text;-webkit-user-select:text;touch-action:auto;font:inherit;font-size:24px;text-align:center;letter-spacing:.3em;padding:.4em;width:min(60vw,220px);background:var(--pn);color:var(--fg);border:1px solid var(--ac)"><button id="o_go" class="b" style="min-width:0">ВОЙТИ</button></div><div id="o_msg" style="max-width:80vw"></div><button id="o_bk" class="b">НАЗАД</button></div>
 <div id="srv" class="s hid"><button id="f5" class="ib tr">⛶</button><h2>СПИСОК СЕРВЕРОВ</h2><div id="sv_l" style="display:flex;flex-direction:column;gap:8px;max-height:45vh;overflow-y:auto;touch-action:pan-y;pointer-events:auto"></div><div id="sv_m"></div><div id="sv_e"></div><button id="sv_r" class="b">ОБНОВИТЬ</button><button id="sv_b" class="b">НАЗАД</button></div>
-<style>.chm{background:var(--pn);border-left:3px solid var(--ac);padding:3px 8px;font-size:14px;word-break:break-word}#chx{flex:1;min-width:0;font:inherit;font-size:16px;padding:.5em;background:var(--pn);color:var(--fg);border:1px solid var(--ac);user-select:text;-webkit-user-select:text;touch-action:auto}</style>
+<div id="pmenu" class="s hid"><h2>ИГРАТЬ</h2><div id="pl_info" style="max-width:80vw;opacity:.9"></div><button id="pl_go" class="b">▶ НАЧАТЬ ИГРУ</button><button id="pl_md" class="b">🎮 РЕЖИМЫ</button><button id="pl_df" class="b">🎚 СЛОЖНОСТЬ</button><button id="pl_bk" class="b">НАЗАД</button></div>
+<div id="modes" class="s hid"><h2>🎮 РЕЖИМЫ</h2><button id="md_cl" class="b">🏠 КЛАССИКА</button><div class="md">Ты — игрок. Найди ключи, открой сейф и сбеги от Гренни.</div><button id="md_gr" class="b">🔒 ИГРОК ЗА БАБКУ</button><div class="md">Ты — Гренни, а вместо игрока — ИИ. Он ищет ключи, открывает двери и прячется. Поймай его до рассвета!</div><div id="md_m" style="max-width:80vw;color:#e0b050"></div><button id="md_bk" class="b">НАЗАД</button></div>
+<div id="dscr" class="s hid"><h2>🎚 СЛОЖНОСТЬ</h2><button id="df_bk" class="b">НАЗАД</button></div>
+<div id="gf" style="position:fixed;left:50%;transform:translateX(-50%);bottom:64px;width:min(86vw,440px);z-index:12;pointer-events:none;display:none;flex-direction:column;gap:3px"></div>
+<style>#news{position:absolute;left:12px;top:50%;transform:translateY(-50%);width:min(27vw,250px);max-height:68vh;overflow-y:auto;text-align:left;background:var(--pn);border:1px solid var(--ac);padding:10px 12px;font-size:13px;line-height:1.4;pointer-events:auto;touch-action:pan-y;z-index:2}#news h3{margin:0 0 6px;font-size:15px;letter-spacing:.12em;color:var(--ac)}#news .ni{border-top:1px solid #ffffff22;padding-top:6px;margin-top:6px;word-break:break-word}.pcp{color:var(--ac);cursor:pointer;text-decoration:underline;font-weight:bold}.md{max-width:78vw;font-size:13px;opacity:.75;margin-bottom:6px}#ppick{display:flex;flex-direction:column;gap:8px;align-items:center}#ppick button:disabled{opacity:.4}@media(max-width:640px){#news{position:static;transform:none;width:84vw;max-height:18vh;margin-top:8px}}.chm{background:var(--pn);border-left:3px solid var(--ac);padding:3px 8px;font-size:14px;word-break:break-word}#chx{flex:1;min-width:0;font:inherit;font-size:16px;padding:.5em;background:var(--pn);color:var(--fg);border:1px solid var(--ac);user-select:text;-webkit-user-select:text;touch-action:auto}</style>
 <button id="chb" class="ib hid" style="position:fixed;right:10px;top:62px;z-index:12">💬</button>
 <div id="chl" style="position:fixed;left:50%;transform:translateX(-50%);bottom:64px;width:min(86vw,440px);z-index:12;pointer-events:none;display:none;flex-direction:column;gap:3px"></div>
 <div id="chi" class="hid" style="position:fixed;left:50%;transform:translateX(-50%);bottom:8px;width:min(94vw,480px);z-index:13;display:flex;gap:6px"><input id="chx" maxlength="80" placeholder="Сообщение..." autocomplete="off" spellcheck="false"><button id="chs" class="ib" style="width:54px">➤</button></div>
@@ -358,20 +362,21 @@ else if(a=='win'&&st=='play'){give('k3');escape(doors[4])}}
 $('cp').onclick=e=>{const d=e.target.dataset;if(!d)return;if(d.t){CH[d.t]=!CH[d.t];cpUI()}else if(d.g){d.g=='all'?Object.keys(GV).forEach(k=>give(k)):give(d.g)}else if(d.a)act2(d.a)};
 $('tbc').onclick=()=>{$('cp').classList.toggle('hid');cpUI()};$('cpx').onclick=()=>hide('cp');
 /* промокоды */
-const PC={'TEST':1,'ТЕСТ':1};
+const PC={'TEST':1,'ТЕСТ':1,'VUBU2UP':3};
 function applyPromo(){const c=$('pinp').value.trim().toUpperCase(),k=PC[c],m=$('pmsg');
 if(!k){m.textContent='❌ Неверный промокод';return}
+if(k==3){promoGran();return}
 [1,2,3,4].forEach(n=>ENDS.add(n));LS.set('pdd_e',JSON.stringify([...ENDS]));
 if(k==2){ADM=true;LS.set('pdd_a','1');m.textContent='✅ АДМИН: все концовки, планшет с камерами и чит-панель 🛠 (в игре, сверху справа)'}else m.textContent='✅ TEST: все 4 концовки открыты!';
 updTab();menuUI();$('pinp').value=''}
-$('bpr').onclick=()=>{hide('menu');show('pcode');$('pmsg').textContent=''};
+$('bpr').onclick=()=>{hide('menu');show('pcode');$('pmsg').textContent='';$('ppick').classList.add('hid')};
 $('pback').onclick=()=>{hide('pcode');show('menu')};$('pok').onclick=applyPromo;
 $('pinp').addEventListener('keydown',e=>{if(e.key=='Enter')applyPromo()});
 /* движение */
 const rad=.28,hit=(x,z)=>{if(CH.nc)return 0;for(const c of cols)if(c.on&&x>c.a-rad&&x<c.b+rad&&z>c.c-rad&&z<c.d+rad)return 1};
 function mv(dx,dz){if(!hit(P.x+dx,P.z))P.x+=dx;if(!hit(P.x,P.z+dz))P.z+=dz}
 function update(dt){
-afk+=dt;if(afk>60&&!CH.na&&!window.ONL){ending(4);return}
+afk+=dt;if(afk>60&&!CH.na&&!window.ONL&&!window.GMG){ending(4);return}
 const f=(K.KeyW||K.ArrowUp?1:0)-(K.KeyS||K.ArrowDown?1:0),r=(K.KeyD||K.ArrowRight?1:0)-(K.KeyA||K.ArrowLeft?1:0);
 let mx=r+jx,mz=jy-f;const n=Math.hypot(mx,mz),l=Math.min(1,n);if(n){mx/=n;mz/=n}
 const run=K.ShiftLeft||K.ShiftRight||jr,sp=(run?4.6:2.6)*l*(CH.sp?2:1),s=Math.sin(yaw),c=Math.cos(yaw);
@@ -416,8 +421,8 @@ let my=host?{host:1}:{host:0},remP=null,remAt=0,hd=null,locked=null,coll=0,ls=0,
 const list=()=>[{kind:'viewer',isMe:true,presence:my},...(remP?[{kind:'viewer',isMe:false,presence:remP}]:[])];
 const emit=(l=[])=>hd&&hd({peers:list(),joined:[],left:l,updated:[]});
 const send=f=>{const n=Date.now();if(!f&&n-ls<80)return;ls=n;const m=JSON.stringify({s:sid,n:++seq,p:my});cls.forEach(c=>{if(c.connected)try{c.publish(mine,m)}catch(e){}})};
-const net={presence(p){for(const k in p){if(p[k]===null)delete my[k];else my[k]=p[k]}send(p&&p.ch);return Promise.resolve()},peers:list,
-onPeers(f){hd=f;setTimeout(()=>emit(),0);return()=>{}},leave(){if(dead)return Promise.resolve();dead=1;ints.forEach(clearInterval);document.removeEventListener('visibilitychange',vis);const b=JSON.stringify({s:sid,n:++seq,p:my,b:1});cls.forEach(c=>{try{if(c.connected){c.publish(mine,b);if(ann0)c.publish(LT,'',{retain:true})}c.end(false)}catch(e){}});return Promise.resolve()}};
+const net={presence(p){for(const k in p){if(p[k]===null)delete my[k];else my[k]=p[k]}send(p&&p.ch);return Promise.resolve()},peers:list,links:()=>cls.filter(c=>c.connected).length+'/'+BR.length,
+onPeers(f){hd=f;setTimeout(()=>emit(),0);return()=>{}},leave(){if(dead)return Promise.resolve();dead=1;ints.forEach(f=>typeof f=='function'?f():clearInterval(f));document.removeEventListener('visibilitychange',vis);const b=JSON.stringify({s:sid,n:++seq,p:my,b:1});cls.forEach(c=>{try{if(c.connected){c.publish(mine,b);if(ann0)c.publish(LT,'',{retain:true})}c.end(false)}catch(e){}});return Promise.resolve()}};
 const conn=url=>new Promise(r=>{let d=0;const c=mqtt.connect(url,{connectTimeout:5000,reconnectPeriod:2000,keepalive:20,clean:true,will:WL}),f=v=>{if(!d){d=1;if(!v)try{c.end(true)}catch(e){}r(v?c:null)}};c.on('connect',()=>f(1));c.on('error',()=>f(0));c.on('close',()=>f(0));setTimeout(()=>f(0),6000)});
 const onMsg=(t,m)=>{let d;try{d=JSON.parse(m.toString())}catch(e){return}if(!d||!d.p)return;
 if(d.n<=(seen[d.s]||0))return;seen[d.s]=d.n;
@@ -426,7 +431,7 @@ if(host){if(locked&&locked!==d.s){if(Date.now()-remAt<4000)return;remP=null}lock
 if(d.b){remP=null;if(host)locked=null;emit([{}]);return}
 remP=d.p;remAt=Date.now();emit()};
 const vis=()=>{if(!document.hidden&&!dead){remAt=lt=Date.now();send(1);if(host)ann()}};document.addEventListener('visibilitychange',vis);
-const ann=()=>{ann0=1;const m=my.go?'':JSON.stringify({c:code,m:my.mode||1,n:remP?2:1,t:Date.now()});cls.forEach(c=>{if(c.connected)try{c.publish(LT,m,{retain:true})}catch(e){}})};const live=()=>{if(host){ann();ints.push(setInterval(ann,4000))}ints.push(setInterval(()=>send(1),1000),setInterval(()=>{const n=Date.now(),late=n-lt>2500;lt=n;if(late){remAt=n;return}if(remP&&n-remAt>15000){remP=null;locked=null;emit([{}])}},1000))};
+const ann=()=>{ann0=1;const m=my.go?'':JSON.stringify({c:code,m:my.mode||1,n:remP?2:1,t:Date.now()});cls.forEach(c=>{if(c.connected)try{c.publish(LT,m,{retain:true})}catch(e){}})};const live=()=>{if(host){ann();ints.push(mkTick(ann,4000))}ints.push(mkTick(()=>send(1),1000),mkTick(()=>{const n=Date.now(),late=n-lt>2500;lt=n;if(late){remAt=n;return}if(remP&&n-remAt>30000){remP=null;locked=null;emit([{}])}},1000))};
 const att=c=>{c.on('message',onMsg);c.subscribe(host?[base+'h',base+'g']:theirs)};
 await new Promise(res=>{let pend=BR.length,t=0;const fin=()=>{clearTimeout(t);res()};BR.forEach(u=>conn(u).then(c=>{if(c){if(dead){try{c.end(true)}catch(e){}}else{cls.push(c);att(c)}if(!t)t=setTimeout(fin,1500)}if(--pend==0)fin()}))});
 if(!cls.length){dead=1;no('network');return}
@@ -437,10 +442,10 @@ for(let i=0;i<130&&!remP;i++){if(i%5==0)send(1);await new Promise(r=>setTimeout(
 if(remP){send(1);live();ok(net);return}
 net.leave();no('peer-unavailable')})}
 async function netJoin(code,host){
-try{NET.room=await mkNet(code,host)}catch(e){omsg(e=='peer-unavailable'?'❌ Сервер с таким кодом не найден. Хозяин должен быть в лобби, а у обоих должна быть версия «онлайн v9» (внизу меню справа)':e=='unavailable-id'?'❌ Код занят, попробуй ещё раз':e=='network'?'❌ Ошибка сети: ни один сервер связи не открылся. Попробуй другую сеть (Wi-Fi или мобильный) или VPN, отключи блокировщик рекламы':e=='lib'?'❌ Не загрузилась библиотека онлайна (нужен интернет, попробуй VPN)':e=='timeout'?'❌ Нет ответа от сервера за 20 сек (проверь код, интернет; лучше Wi-Fi у обоих; хозяин должен оставаться в лобби)':'❌ Ошибка подключения: '+e);return}
+try{NET.room=await mkNet(code,host)}catch(e){omsg(e=='peer-unavailable'?'❌ Сервер с таким кодом не найден. Хозяин должен быть в лобби, а у обоих должна быть версия «онлайн v11» (внизу меню справа)':e=='unavailable-id'?'❌ Код занят, попробуй ещё раз':e=='network'?'❌ Ошибка сети: ни один сервер связи не открылся. Попробуй другую сеть (Wi-Fi или мобильный) или VPN, отключи блокировщик рекламы':e=='lib'?'❌ Не загрузилась библиотека онлайна (нужен интернет, попробуй VPN)':e=='timeout'?'❌ Нет ответа от сервера за 20 сек (проверь код, интернет; лучше Wi-Fi у обоих; хозяин должен оставаться в лобби)':'❌ Ошибка подключения: '+e);return}
 NET.code=code;NET.host=host?1:0;NET.started=0;NET.rem=null;NET.on=0;NET.hist=[];NET.lastCi=0;
 NET.room.presence(host?{host:1,mode:NET.mode}:{host:0});NET.room.onPeers(onPeers);
-hide('onl');hide('srv');show('lob');lmsg('');lobUI()}
+hide('onl');hide('srv');show('lob');lmsg('');lobUI();NET.rx=Date.now();wlOn()}
 function onPeers(ch){
 NET.rx=Date.now();
 const ps=ch.peers.filter(p=>p.kind=='viewer'),o=ps.find(p=>!p.isMe);NET.rem=o?o.presence:null;chatIn();
@@ -451,8 +456,9 @@ if(NET.on&&NET.rem&&NET.rem.rt&&NET.rem.rt!=NET.lastRt){NET.lastRt=NET.rem.rt;if
 if(NET.on&&ch.left.length)msg('Друг вышел из игры')}
 function startOnline(){NET.on=1;NET.started=1;{const o=NET.rem;NET.rn=NET.host?NET.lastGo:Math.max(NET.lastGo||0,(o&&o.rq)||0)}NET.rq=0;NET.role=NET.mode==3?'player':(NET.mode==1?(NET.host?'player':'granny'):(NET.host?'granny':'player'));hide('lob');play()}
 function mkAv(){const a=new THREE.Group(),b=new THREE.Mesh(new THREE.CylinderGeometry(.22,.22,1.1,10),mc(0x3a7bd5,.6)),h=new THREE.Mesh(new THREE.SphereGeometry(.2,10,8),mc(0xe0b894,.7));b.position.y=.65;h.position.y=1.35;a.add(b,h);return a}
-begin=function(){window.ONL=NET.on?1:0;PL.forEach(l=>{l.distance=window.ONL?12:9;l.intensity=window.ONL?1.7:.7});_begin();
-if(!NET.on){gTick=_gT;G.visible=true;if(NET.av)NET.av.visible=false;return}
+begin=function(){window.ONL=NET.on?1:0;window.GMG=0;PL.forEach(l=>{l.distance=window.ONL?12:9;l.intensity=window.ONL?1.7:.7});_begin();
+if(!NET.on){gTick=_gT;G.visible=true;if(NET.av)NET.av.visible=false;if(BOT.av)BOT.av.visible=false;$('gf').style.display='none';if(GMODE=='gran'&&gUnl())granBegin();return}
+if(BOT.av)BOT.av.visible=false;$('gf').style.display='none';
 const gr=NET.role=='granny';if(!NET.av){NET.av=mkAv();scene.add(NET.av)}
 NET.lastRt=NET.rem&&NET.rem.rt||0;NET.lastCi=((NET.rem&&NET.rem.ch)||[]).reduce((a,m)=>Math.max(a,m&&m.i||0),0);NET.room.presence({res:null,rt:null});syncReset();NET.room.presence({wk:0,wb:''});
 if(gr){give('k1');give('k2');G.visible=false;g.st='patrol';gTick=()=>{};P.set(8,1.6,11.5);$('obj').textContent=MT[NET.mode][1]}
@@ -466,12 +472,12 @@ function netTick(){if(!NET.room||!NET.on)return;
 const p={x:+P.x.toFixed(2),z:+P.z.toFixed(2),yaw:+yaw.toFixed(2),py:st=='hide'?0:1};
 if(NET.mode==3&&NET.host){p.gx=+g.x.toFixed(2);p.gz=+g.z.toFixed(2);p.gr=+G.rotation.y.toFixed(2);p.gs=g.st}
 Object.assign(p,worldOut());NET.room.presence(p);const r=NET.rem,av=NET.av;try{if(r)worldIn(r)}catch(e){}
-if(r){const q=Date.now()-(NET.rx||Date.now());if(q>3500&&!NET.lag){NET.lag=1;feedAdd('📡 Нет связи с другом ('+(q/1000|0)+' с)…')}else if(q<1500&&NET.lag){NET.lag=0;feedAdd('📡 Связь с другом восстановлена')}}
+if(r){const q=Date.now()-(NET.rx||Date.now());if(q>3500&&!NET.lag){NET.lag=1;feedAdd('📡 Нет связи с другом ('+(q/1000|0)+' с, каналов '+NET.room.links()+')…')}else if(q<1500&&NET.lag){NET.lag=0;feedAdd('📡 Связь с другом восстановлена')}}
 const vis=av&&r&&r.x!=null&&(NET.mode==3||NET.role=='granny')&&r.py!=0&&st!='end';
 if(av){av.visible=!!vis;if(vis){av.position.x+=(r.x-av.position.x)*.3;av.position.z+=(r.z-av.position.z)*.3;av.rotation.y=r.yaw+PI}}}
 ending=function(n){_end(n);if(NET.on&&!NET.echo&&NET.room)NET.room.presence({res:n,rt:Date.now()})};
 addEventListener('pagehide',e=>{if(!e.persisted&&NET.room)try{NET.room.leave()}catch(x){}});
-function netLeave(){NET.on=0;window.ONL=0;NET.started=0;clearInterval(NET.iv);if(NET.room){try{NET.room.leave()}catch(e){}}NET.room=null;NET.rem=null;gTick=_gT;G.visible=true;if(NET.av)NET.av.visible=false}
+function netLeave(){wlOff();window.GMG=0;NET.on=0;window.ONL=0;NET.started=0;clearInterval(NET.iv);if(NET.room){try{NET.room.leave()}catch(e){}}NET.room=null;NET.rem=null;gTick=_gT;G.visible=true;if(NET.av)NET.av.visible=false}
 $('f3').onclick=$('f4').onclick=fs;
 $('bon').onclick=()=>{hide('menu');show('onl');show('o_plus');hide('o_opts');hide('o_jf');omsg('')};
 $('o_plus').onclick=()=>{hide('o_plus');show('o_opts')};
@@ -481,7 +487,7 @@ $('o_go').onclick=()=>{const c=$('o_in').value.trim().toUpperCase();if(c.length!
 $('o_bk').onclick=()=>{hide('onl');show('menu')};
 $('l_bk').onclick=()=>{netLeave();hide('lob');show('menu')};
 $('bm').addEventListener('click',netLeave);$('pm').addEventListener('click',netLeave);
-$('l_st').onclick=()=>{if(!NET.room)return;if(NET.room.peers().filter(p=>p.kind=='viewer').length<2){lmsg('Ждём друга...');return}NET.lastGo=Date.now();NET.room.presence({go:NET.lastGo,mode:NET.mode});startOnline()};
+$('l_st').onclick=()=>{if(!NET.room)return;if(NET.room.peers().filter(p=>p.kind=='viewer').length<2){lmsg('Ждём друга...');return}if(NET.rx&&Date.now()-NET.rx>8000){lmsg('Друг не отвечает ('+((Date.now()-NET.rx)/1000|0)+' с). Пусть откроет игру и не сворачивает её');return}NET.lastGo=Date.now();NET.room.presence({go:NET.lastGo,mode:NET.mode});startOnline()};
 $('l_cp').onclick=()=>{const t=NET.code;try{navigator.clipboard.writeText(t).then(()=>lmsg('Код скопирован ✅'),()=>cp2(t))}catch(e){cp2(t)}};
 function cp2(t){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();let ok=0;try{ok=document.execCommand('copy')}catch(e){}a.remove();lmsg(ok?'Код скопирован ✅':'Скопируй код вручную: '+t)}
 
@@ -504,6 +510,11 @@ $('sv_b').onclick=()=>{svStop();hide('srv');show('onl');show('o_plus');hide('o_o
 $('sv_l').onclick=e=>{const b=e.target.closest&&e.target.closest('button'),c=b&&b.dataset.c;if(!c)return;svStop();$('sv_m').textContent='Подключаюсь... до 10 сек';$('sv_e').textContent='';netJoin(c.toUpperCase(),0)};
 $('f5').onclick=fs;
 
+function mkTick(fn,ms){try{const u=URL.createObjectURL(new Blob(['setInterval(function(){postMessage(0)},'+ms+')'],{type:'text/javascript'})),w=new Worker(u);w.onmessage=()=>fn();return()=>{try{w.terminate();URL.revokeObjectURL(u)}catch(e){}}}catch(e){const i=setInterval(fn,ms);return()=>clearInterval(i)}}
+let WLK=null;async function wlOn(){try{if(navigator.wakeLock&&!WLK&&!document.hidden){WLK=await navigator.wakeLock.request('screen');WLK.addEventListener('release',()=>{WLK=null})}}catch(e){}}
+function wlOff(){try{WLK&&WLK.release()}catch(e){}WLK=null}
+document.addEventListener('visibilitychange',()=>{if(!document.hidden&&NET.room)wlOn()});
+setInterval(()=>{if(!NET.room||NET.on)return;const n=NET.room.peers().filter(p=>p.kind=='viewer').length,q=NET.rx?Date.now()-NET.rx:0;$('l_n').textContent='Игроков: '+n+'/2'+(n>1&&q>5000?' · ⚠ нет сигнала '+(q/1000|0)+' с':'')+' · каналов '+NET.room.links()},1000);
 /* СИНХРОНИЗАЦИЯ МИРА: двери, предметы, сейф, бабка, прятки, пауза */
 let LDF=0;
 const DNm=['спальня','ванная','кухня','гостиная'],IDS=['k1','k2','n1','n2','k3'],
@@ -512,7 +523,7 @@ FN=()=>NET.mode==3||NET.role=='granny'?'Друг':'Бабка-друг',
 invMask=()=>IDS.reduce((a,id,b)=>a|(has(id)?1<<b:0),0);
 function feedAdd(t){const l=$('chl');if(!l)return;const d=document.createElement('div');d.className='chm';d.textContent=t;l.appendChild(d);while(l.children.length>5)l.removeChild(l.firstChild);setTimeout(()=>d.remove(),9000)}
 function applyDoor(d,s){if(s==2){d.locked=false;d.open=1;d.col.on=0}else if(s==1){d.locked=false;d.open=0;d.col.on=1}else{d.locked=!!d.key&&!d.main;d.open=0;d.col.on=1}}
-function syncReset(){NET.dk=[];NET.dv=[0,0,0,0];NET.rv=[0,0,0,0];NET.rps=0;NET.rpy=null;NET.lastGs='';NET.lastWk=0;NET.wk=0;NET.wb='';NET.wby='';NET.rx=Date.now();NET.lag=0}
+function syncReset(){NET.t0=Date.now();NET.dk=[];NET.dv=[0,0,0,0];NET.rv=[0,0,0,0];NET.rps=0;NET.rpy=null;NET.lastGs='';NET.lastWk=0;NET.wk=0;NET.wb='';NET.wby='';NET.rx=Date.now();NET.lag=0}
 function worldOut(){
 const o={rn:st=='load'?0:(NET.rn||0),rq:NET.rq||0,ps:(st=='pause'||document.hidden)?1:0,ld:performance.now()-LDF<400?1:0,sf:safe.done?1:0},dr=[];
 for(let i=0;i<4;i++){const c=dst(doors[i]);if(NET.dk[i]==null)NET.dk[i]=c;if(c!=NET.dk[i]){NET.dv[i]=Math.max(NET.dv[i],NET.rv[i]||0)+1;NET.dk[i]=c}dr.push(c)}
@@ -521,9 +532,9 @@ if(NET.role!='granny')o.iv=invMask();
 if(NET.mode==3&&NET.host){o.wk=NET.wk||0;o.wb=NET.wb||''}
 return o}
 function worldIn(r){
-const fn=FN();
-if(r.ps!=null){if(r.ps&&!NET.rps)feedAdd('⏸ '+fn+': пауза / игра свёрнута');else if(!r.ps&&NET.rps)feedAdd('▶ '+fn+' снова в игре');NET.rps=r.ps}
-if(r.py!=null){if(NET.rpy!=null&&r.py!=NET.rpy)feedAdd(r.py?'👀 '+fn+' вышел из укрытия':'🫣 '+fn+' спрятался');NET.rpy=r.py}
+const fn=FN(),qt=Date.now()-(NET.t0||0)<2500,fa=t=>{if(!qt)feedAdd(t)};
+if(r.ps!=null){if(r.ps&&!NET.rps)fa('⏸ '+fn+': пауза / игра свёрнута');else if(!r.ps&&NET.rps)fa('▶ '+fn+' снова в игре');NET.rps=r.ps}
+if(r.py!=null){if(NET.rpy!=null&&r.py!=NET.rpy)fa(r.py?'👀 '+fn+' вышел из укрытия':'🫣 '+fn+' спрятался');NET.rpy=r.py}
 if(r.rq&&r.rq>(NET.rn||0)&&NET.on&&st!='load'){NET.rn=NET.rq=r.rq;play();return}
 if(!NET.rn||r.rn!==NET.rn)return;
 for(let i=0;i<4;i++){
@@ -534,16 +545,103 @@ const dx=d.col.a+.6,dz=d.col.c+.1;
 if(rs!=2&&cur==2&&Math.hypot(P.x-dx,P.z-dz)<1){NET.dv[i]=rv+1;continue}
 applyDoor(d,rs);NET.dk[i]=rs;NET.dv[i]=rv;
 if(rs!=cur){let who=fn;const gd=Math.hypot(g.x-dx,g.z-dz);if(NET.mode==3&&!NET.host&&r.x!=null&&gd<2.5&&gd<Math.hypot(r.x-dx,r.z-dz))who='Бабка';
-feedAdd(rs==2?'🚪 '+who+' открыл дверь: '+DNm[i]:cur==2?'🚪 '+who+' закрыл дверь: '+DNm[i]:'🔓 '+who+' отпер дверь: '+DNm[i]);
-if(Math.hypot(P.x-dx,P.z-dz)<18)snd.creak()}}}
-if(r.sf&&!safe.done){safe.done=1;keyp.emissive.set(0x22cc55);feedAdd('🔓 '+fn+' открыл сейф!');if(NET.role!='granny')give('k3')}
-if(NET.role!='granny'&&r.iv!=null)IDS.forEach((id,b)=>{if((r.iv>>b&1)&&!has(id)){give(id);feedAdd('🎒 '+fn+' нашёл: '+GV[id][0]+(NET.mode==3?' (инвентарь общий)':''))}});
+fa(rs==2?'🚪 '+who+' открыл дверь: '+DNm[i]:cur==2?'🚪 '+who+' закрыл дверь: '+DNm[i]:'🔓 '+who+' отпер дверь: '+DNm[i]);
+if(Math.hypot(P.x-dx,P.z-dz)<18&&!qt)snd.creak()}}}
+if(r.sf&&!safe.done){safe.done=1;keyp.emissive.set(0x22cc55);fa('🔓 '+fn+' открыл сейф!');if(NET.role!='granny')give('k3')}
+if(NET.role!='granny'&&r.iv!=null)IDS.forEach((id,b)=>{if((r.iv>>b&1)&&!has(id)){give(id);fa('🎒 '+fn+' нашёл: '+GV[id][0]+(NET.mode==3?' (инвентарь общий)':''))}});
 if(NET.mode==3&&!NET.host){
-if(r.wk!=null&&r.wk!==NET.lastWk){if(r.wk>0){const by=r.wb;msg(by=='h'?'Друг разбудил бабку! 😱':by=='g'?'Ты разбудил бабку! 😱':'Гренни проснулась!!! 😱');feedAdd(by=='h'?'😱 Друг разбудил бабку':by=='g'?'😱 Ты разбудил бабку':'😱 Бабка проснулась');snd.growl()}NET.lastWk=r.wk}
-if(r.gs&&r.gs!==NET.lastGs){if(r.gs=='chase')feedAdd('😡 Гренни погналась за другом!');NET.lastGs=r.gs}}}
+if(r.wk!=null&&r.wk!==NET.lastWk){if(r.wk>0){const by=r.wb;msg(by=='h'?'Друг разбудил бабку! 😱':by=='g'?'Ты разбудил бабку! 😱':'Гренни проснулась!!! 😱');fa(by=='h'?'😱 Друг разбудил бабку':by=='g'?'😱 Ты разбудил бабку':'😱 Бабка проснулась');snd.growl()}NET.lastWk=r.wk}
+if(r.gs&&r.gs!==NET.lastGs){if(r.gs=='chase')fa('😡 Гренни погналась за другом!');NET.lastGs=r.gs}}}
 const _wake=wake;wake=function(){const was=g.st=='sleep',by=NET.wby||(cm>=DF.wake?'t':'h');NET.wby='';_wake();if(was&&NET.on&&NET.mode==3&&NET.host){NET.wk=(NET.wk||0)+1;NET.wb=by;if(by=='g'){msg('Друг разбудил бабку! 😱');feedAdd('😱 Друг разбудил бабку')}}};
 $('ba').addEventListener('click',()=>{if(NET.on&&NET.room){NET.rq=Date.now();NET.rn=NET.rq;NET.wk=0;NET.wb='';NET.room.presence({rq:NET.rq,wk:0,wb:''})}});
 
+/* ===== НОВОСТИ, МЕНЮ «ИГРАТЬ», РЕЖИМ «ИГРОК ЗА БАБКУ» ===== */
+const NEWS=[{t:'Здравствуйте игроки, приятно что вы тут). И в честь обновления, для вас я сделал промокод:<span class="pcp">vubu2up</span> удачной игры) Спасибо вани за тестера'}];
+function newsUI(){const n=$('news');n.innerHTML='<h3>📰 НОВОСТИ</h3>'+NEWS.map(x=>'<div class="ni">'+x.t+'</div>').join('');n.querySelectorAll('.pcp').forEach(e=>e.onclick=()=>{try{navigator.clipboard.writeText(e.textContent);msg('Промокод скопирован 📋')}catch(x){msg('Промокод: '+e.textContent)}})}
+const gUnl=()=>LS.get('pdd_gm')=='1',SEL='background:var(--ac);color:#000';
+let GMODE=(LS.get('pdd_gsel')=='gran'&&gUnl())?'gran':'classic';
+function plUI(){$('pl_info').textContent='Режим: '+(GMODE=='gran'?'👵 Игрок за бабку':'🏠 Классика')+' · Сложность: '+DIFF[di].n;
+$('md_gr').textContent=(gUnl()?'👵 ':'🔒 ')+'ИГРОК ЗА БАБКУ';$('md_cl').style.cssText=GMODE=='classic'?SEL:'';$('md_gr').style.cssText=GMODE=='gran'?SEL:''}
+$('dscr').insertBefore($('df'),$('df_bk'));
+$('df').addEventListener('click',plUI);
+$('bp').onclick=()=>{hide('menu');plUI();show('pmenu')};
+$('pl_go').onclick=()=>{if(GMODE=='gran'&&!gUnl())GMODE='classic';hide('pmenu');play()};
+$('pl_md').onclick=()=>{hide('pmenu');$('md_m').textContent='';plUI();show('modes')};
+$('pl_df').onclick=()=>{hide('pmenu');show('dscr')};
+$('pl_bk').onclick=()=>{hide('pmenu');show('menu')};
+$('md_bk').onclick=()=>{hide('modes');plUI();show('pmenu')};
+$('df_bk').onclick=()=>{hide('dscr');plUI();show('pmenu')};
+$('md_cl').onclick=()=>{GMODE='classic';LS.set('pdd_gsel','classic');$('md_m').textContent='';plUI()};
+$('md_gr').onclick=()=>{if(!gUnl()){$('md_m').textContent='🔒 Режим закрыт. Введи промокод (🎟 ПРОМОКОД в главном меню). Он есть в новостях 📰';return}GMODE='gran';LS.set('pdd_gsel','gran');$('md_m').textContent='';plUI()};
+/* промокод vubu2up: режим + 1 любая концовка */
+function promoGran(){const m=$('pmsg'),p=$('ppick');LS.set('pdd_gm','1');$('pinp').value='';plUI();
+if(LS.get('pdd_pv')=='1'){m.textContent='✅ Промокод уже активирован. Режим «👵 Игрок за бабку» доступен (ИГРАТЬ → РЕЖИМЫ). Концовку по нему можно выбрать только один раз.';p.classList.add('hid');return}
+if([1,2,3,4].every(n=>ENDS.has(n))){LS.set('pdd_pv','1');m.textContent='✅ Открыт режим «👵 Игрок за бабку»! Все концовки у тебя уже есть.';p.classList.add('hid');return}
+m.textContent='✅ Промокод принят! Открыт режим «👵 Игрок за бабку». Выбери 1 любую концовку:';
+p.innerHTML=[1,2,3,4].map(n=>'<button class="b" data-n="'+n+'"'+(ENDS.has(n)?' disabled':'')+'>'+(ENDS.has(n)?'✔ ':'')+EN[n][0]+'</button>').join('');p.classList.remove('hid')}
+$('ppick').onclick=e=>{const n=+(e.target.dataset&&e.target.dataset.n);if(LS.get('pdd_pv')=='1'||!(n>=1&&n<=4)||ENDS.has(n))return;ENDS.add(n);LS.set('pdd_e',JSON.stringify([...ENDS]));LS.set('pdd_pv','1');$('ppick').classList.add('hid');$('pmsg').textContent='🎁 Открыта концовка: «'+EN[n][0]+'»';updTab();menuUI()};
+newsUI();plUI();
+/* ----- ИИ-игрок ----- */
+const BOT={av:null,x:4,z:3.5,hid:0,sp:null,has:{},st:'task',step:0,path:[],pk:'',stk:0,ph:0,sd:0,ry:0,pause:0,hint:15,ft:0,fl:0,hT:0},
+DOORN={1:0,7:1,10:2,4:3},
+BPLAN=[{x:3.5,z:1.5,a:'k1',p:8},{x:9.5,z:1.8,a:'n1',p:8},{x:15.5,z:2.5,a:'k2',p:8},{x:18.2,z:1.8,a:'n2',p:8},{x:11.2,z:12,a:'safe',p:20},{x:16.5,z:12.8,a:'exit',p:1}],PTM=[1.5,1.25,1,.85,.7,.55],
+HSP=[{k:'w',hx:6.35,hz:1.5,ex:5.2,ez:1.5},{k:'b',hx:2,hz:1.5,ex:3.3,ez:1.8}],
+BNAME={k1:'ключ от кухни',k2:'ключ от гостиной',n1:'подсказку в ванной',n2:'подсказку на кухне'};
+function gfeed(t){const l=$('gf');if(!l)return;const d=document.createElement('div');d.className='chm';d.textContent=t;l.appendChild(d);while(l.children.length>5)l.removeChild(l.firstChild);setTimeout(()=>d.remove(),9000)}
+function gObj(){$('obj').textContent='👵 Поймай игрока до рассвета · он собрал '+Object.keys(BOT.has).length+'/5'}
+function roomOf(x,z){return z<6?(x<7?'в спальне':x<12?'в ванной':'на кухне'):z<8?'в коридоре':x<13?'в гостиной':'в прихожей'}
+function granBegin(){const B=BOT;window.GMG=1;if(!B.av){B.av=mkAv();scene.add(B.av)}
+Object.assign(B,{x:4,z:3.5,hid:0,sp:null,has:{},st:'task',step:0,path:[],pk:'',stk:0,ph:0,sd:0,pause:2.5,hint:14,ft:0,fl:0,hT:0});B.av.visible=true;B.av.position.set(4,0,3.5);
+G.visible=false;g.st='patrol';gTick=botTick;P.set(8,1.6,11.5);
+['k1','k2'].forEach(id=>{const v=GV[id];inv.push({id,n:v[0],ic:v[1]})});renderInv();
+$('gf').innerHTML='';$('gf').style.display='flex';gObj();msg('Ты — Гренни! Поймай игрока до рассвета 👵')}
+function granOff(){window.GMG=0;if(BOT.av)BOT.av.visible=false;$('gf').style.display='none'}
+['bm','pm'].forEach(i=>$(i).addEventListener('click',granOff));
+function granEnd(k){if(st=='end')return;endPrev=st;st='end';['hud','hint','hv','tg','code','cams'].forEach(i=>hide(i));try{document.exitPointerLock&&document.exitPointerLock()}catch(e){}
+const win=k=='win';if(win)LS.set('pdd_gw',(+LS.get('pdd_gw')||0)+1);
+$('et').textContent=win?'ТЫ ПОЙМАЛА ЕГО! 👵':k=='dawn'?'РАССВЕТ... ОН УСКОЛЬЗНУЛ':'ОН СБЕЖАЛ 😭';
+$('es').textContent=win?'Игрок пойман. Гренни довольна.':k=='dawn'?'Наступило утро, а игрок так и не пойман.':'Игрок открыл входную дверь и убежал.';
+$('bc').classList.add('hid');$('ba').classList.remove('hid');$('ec2').textContent='Побед за бабку: '+(+LS.get('pdd_gw')||0);show('end');$('gf').style.display='none';
+if(win)[523,659,784].forEach((f,i)=>T(f,1.4,'sine',.12,0,i*.25));else snd.growl()}
+{const _e3=ending;ending=function(n){if(window.GMG){granEnd(n==3?'dawn':'esc');return}_e3(n)};
+const _u2=upd;upd=function(){_u2();if(window.GMG)gObj()};
+const _t2=take;take=function(){if(window.GMG){msg('Это вещи игрока 😈');return}return _t2.apply(null,arguments)}}
+IT.filter(i=>i.w===1).forEach(i=>{const of=i.f,ol=i.l,k=i.p.x>5?'w':'b';i.l=()=>window.GMG?(st=='play'?(k=='w'?'Проверить шкаф':'Проверить под кроватью'):null):ol();i.f=()=>{if(!window.GMG)return of();if(BOT.hid&&BOT.sp&&BOT.sp.k==k)granEnd('win');else{msg('Пусто... 😒');snd.lock()}}});
+{const sf=IT.find(i=>i.p.x==12.2&&i.p.z==12);if(sf){const of=sf.f;sf.f=()=>{if(window.GMG){msg('Сейф — дело игрока. Лови его! 😈');return}of()}}}
+function bmove(tx,tz,sp,dt){const B=BOT,dx=tx-B.x,dz=tz-B.z,l=Math.hypot(dx,dz);if(l<.03)return 0;const s=Math.min(l,sp*dt),ox=B.x,oz=B.z;
+if(!hit2(B.x+dx/l*s,B.z,.25))B.x+=dx/l*s;if(!hit2(B.x,B.z+dz/l*s,.25))B.z+=dz/l*s;
+const m=Math.hypot(B.x-ox,B.z-oz);B.ph+=m*3;B.sd+=m;B.ry=Math.atan2(dx,dz);if(B.sd>1.3){B.sd=0;N(.1,Math.max(0,.8-Math.hypot(P.x-B.x,P.z-B.z)/12),200)}return m}
+function botDoor(d,dist){const B=BOT;if(dist>2.1||d.open)return;if(d.locked){if(B.has[d.key])d.locked=false;else return}d.open=1;d.col.on=0;const i=doors.indexOf(d);if(Math.hypot(P.x-(d.col.a+.6),P.z-(d.col.c+.1))<16)snd.creak();gfeed('🚪 Игрок открыл дверь: '+DNm[i])}
+function walkPath(sp,dt,fx,fz){const B=BOT;let px,pz;
+if(B.path.length){const n=GN[B.path[0]];px=n[0];pz=n[1];const dn=DOORN[B.path[0]];if(dn!=null)botDoor(doors[dn],Math.hypot(px-B.x,pz-B.z));if(Math.hypot(px-B.x,pz-B.z)<.45)B.path.shift()}
+else if(fx!=null){px=fx;pz=fz}else return 0;
+const m=bmove(px,pz,sp,dt);if(m<sp*dt*.2)B.stk+=dt;else B.stk=0;if(B.stk>1.2&&B.path.length){B.path.shift();B.stk=0}return m}
+function followTo(tx,tz,sp,dt){const B=BOT,k=tx+','+tz;if(B.pk!=k){B.pk=k;B.path=route(near(B.x,B.z),near(tx,tz));B.stk=0}
+walkPath(sp,dt,tx,tz);return Math.hypot(tx-B.x,tz-B.z)<.6||(!B.path.length&&B.stk>2.2)}
+function botFlee(){const B=BOT,bn=near(B.x,B.z),d0=Math.hypot(B.x-P.x,B.z-P.z);let best=-1,bs=-1e9;
+for(let pass=0;pass<2&&best<0;pass++)GN.forEach((n,i)=>{const r=route(bn,i);if(i!=bn&&!r.length)return;
+if(!pass){if(r.length&&Math.hypot(GN[r[0]][0]-P.x,GN[r[0]][1]-P.z)<d0-.4)return;for(const k of r)if(Math.hypot(GN[k][0]-P.x,GN[k][1]-P.z)<2.2)return}
+const sc=Math.hypot(n[0]-P.x,n[1]-P.z)-r.length*.15;if(sc>bs){bs=sc;best=i}});
+if(best<0)best=bn;B.path=route(bn,best);B.pk='flee';B.stk=0}
+function botAct(a){const B=BOT;
+if(a=='k1'){items[0].visible=false;B.has.k1=1}else if(a=='k2'){items[1].visible=false;B.has.k2=1}else if(a=='n1')B.has.n1=1;else if(a=='n2')B.has.n2=1;
+else if(a=='safe'){safe.done=1;keyp.emissive.set(0x22cc55);B.has.k3=1;snd.unl();gfeed('🔓 Игрок открыл сейф и взял ключ входа!');upd();return}
+else if(a=='exit'){doors[4].open=1;doors[4].col.on=0;snd.creak();granEnd('esc');return}
+gfeed('🎒 Игрок нашёл '+BNAME[a]);upd()}
+function botTick(dt){const B=BOT;if(st=='end'||!B.av)return;
+const dd=Math.hypot(P.x-B.x,P.z-B.z),m=[.8,.9,1,1.05,1.1,1.15][di]||1,walk=1.9*m,run=Math.min(4.35,3.7*m);cm=Math.min(240,cm+dt/2.5);
+if(!B.hid&&hit2(B.x,B.z,.2))doors.forEach(d=>{if(d.col.on&&Math.hypot(B.x-(d.col.a+.6),B.z-(d.col.c+.1))<1.4){d.open=1;d.col.on=0}});
+if(!B.hid&&dd<.95){granEnd('win');return}
+const sees=!B.hid&&dd<7.5&&clear(B.x,B.z,P.x,P.z,.2),hears=!B.hid&&loud&&dd<11,aware=di>0&&(sees||hears||(!B.hid&&dd<2.2));
+if(B.st=='task'&&aware){B.st='flee';B.ft=0;B.fl=3;if(!B.alerted){B.alerted=1;gfeed('😨 Игрок заметил тебя!')}}
+if(B.st=='flee'){B.fl-=dt;B.ft-=dt;if(aware)B.fl=Math.max(B.fl,1.8);
+if(B.x<7.4&&B.z<6.4&&dd>2.5&&di>0){let s=HSP[0];if(Math.hypot(B.x-HSP[1].ex,B.z-HSP[1].ez)<Math.hypot(B.x-s.ex,B.z-s.ez))s=HSP[1];B.sp=s;B.st='hide0';B.pk='';B.stk=0;B.alerted=0}
+else{if(B.ft<=0){botFlee();B.ft=1.1}walkPath(run,dt);if(B.fl<=0){B.alerted=0;B.st='task';B.pk=''}}}
+else if(B.st=='hide0'){const s=B.sp;if(followTo(s.ex,s.ez,run,dt)){B.hid=1;B.st='hid';B.hT=0;B.x=s.hx;B.z=s.hz;gfeed('🫣 Игрок где-то спрятался...')}}
+else if(B.st=='hid'){B.hT+=dt;B.x=B.sp.hx;B.z=B.sp.hz;if((B.hT>9&&dd>6)||B.hT>35){B.hid=0;B.x=B.sp.ex;B.z=B.sp.ez;B.st='task';B.pk='';gfeed('👀 Игрок вышел из укрытия')}}
+else{if(B.pause>0)B.pause-=dt;else{const S=BPLAN[B.step];if(S&&followTo(S.x,S.z,walk,dt)){botAct(S.a);B.step++;B.pause=(S.p||4)*(PTM[di]||1);B.pk=''}}}
+B.hint-=dt;if(B.hint<=0){B.hint=18+Math.random()*8;if(!B.hid&&!sees)gfeed('👂 Слышны шаги '+roomOf(B.x,B.z))}
+B.av.visible=!B.hid;B.av.position.set(B.x,Math.abs(Math.sin(B.ph))*.04,B.z);B.av.rotation.y=B.ry}
 /* ЧАТ */
 NET.cid=Math.floor(Date.now()/1000)*1000;NET.hist=[];NET.lastCi=0;let chPrev='';
 function chatAdd(w,t){const d=document.createElement('div'),l=$('chl');d.className='chm';d.textContent=w+': '+t;l.appendChild(d);while(l.children.length>5)l.removeChild(l.firstChild);setTimeout(()=>d.remove(),10000)}
