@@ -70,7 +70,7 @@ label{display:block;width:min(70vw,320px)}input[type=range]{width:100%}
 </div>
 <div id="hv" class="hid"></div>
 <div id="msg" class="hid"></div>
-<div id="menu" class="s"><button id="news" class="b">📰 НОВОСТИ</button><button id="f2" class="ib tr">⛶</button><h1>ПОБЕГ ИЗ ДОМА</h1><div id="ec"></div><button id="bp" class="b">ИГРАТЬ</button><button id="bpr" class="b">🎟 ПРОМОКОД</button><div style="position:absolute;bottom:3px;right:8px;font-size:11px;opacity:.5">онлайн v15</div><button id="bon" class="b">🌐 ОНЛАЙН</button><button id="bs" class="b">НАСТРОЙКИ</button><button id="bx" class="b">ВЫХОД</button></div>
+<div id="menu" class="s"><button id="news" class="b">📰 НОВОСТИ</button><button id="f2" class="ib tr">⛶</button><h1>ПОБЕГ ИЗ ДОМА</h1><div id="ec"></div><button id="bp" class="b">ИГРАТЬ</button><button id="bpr" class="b">🎟 ПРОМОКОД</button><div style="position:absolute;bottom:3px;right:8px;font-size:11px;opacity:.5">онлайн v16</div><button id="bon" class="b">🌐 ОНЛАЙН</button><button id="bs" class="b">НАСТРОЙКИ</button><button id="bx" class="b">ВЫХОД</button></div>
 <div id="load" class="s hid"><h2>Загрузка...</h2><div id="pbar"><i id="bar"></i></div></div>
 <div id="pause" class="s hid"><h2>ПАУЗА</h2><button id="rs" class="b">ПРОДОЛЖИТЬ</button><button id="ps" class="b">НАСТРОЙКИ</button><button id="pm" class="b">В МЕНЮ</button></div>
 <div id="set" class="s hid"><h2>НАСТРОЙКИ</h2><label>Громкость<input id="vl" type="range" value="70"></label><label>Чувствительность<input id="sn" type="range" min="10" value="50"></label><button id="sb" class="b">НАЗАД</button></div>
@@ -82,7 +82,7 @@ label{display:block;width:min(70vw,320px)}input[type=range]{width:100%}
 <div id="cams" class="hid"><div id="cg"></div><button id="cx2" class="b">✕ ЗАКРЫТЬ</button></div>
 <div id="onl" class="s hid"><button id="f3" class="ib tr">⛶</button><h2>🌐 ОНЛАЙН</h2><button id="o_plus" class="b" style="font-size:40px;min-width:3em">＋</button><div id="o_opts" class="hid" style="display:flex;flex-direction:column;gap:10px"><button id="o_cr" class="b">СОЗДАТЬ СЕРВЕР</button><button id="o_ls" class="b">СПИСОК СЕРВЕРОВ</button><button id="o_jn" class="b">ПОДКЛЮЧИТЬСЯ ПО КОДУ</button></div><div id="o_jf" class="hid" style="display:flex;gap:8px"><input id="o_in" maxlength="5" placeholder="КОД" autocomplete="off" autocapitalize="characters" spellcheck="false" style="user-select:text;-webkit-user-select:text;touch-action:auto;font:inherit;font-size:24px;text-align:center;letter-spacing:.3em;padding:.4em;width:min(60vw,220px);background:var(--pn);color:var(--fg);border:1px solid var(--ac)"><button id="o_go" class="b" style="min-width:0">ВОЙТИ</button></div><div id="o_msg" style="max-width:80vw"></div><button id="o_bk" class="b">НАЗАД</button></div>
 <div id="srv" class="s hid"><button id="f5" class="ib tr">⛶</button><h2>СПИСОК СЕРВЕРОВ</h2><div id="sv_l" style="display:flex;flex-direction:column;gap:8px;max-height:45vh;overflow-y:auto;touch-action:pan-y;pointer-events:auto"></div><div id="sv_m"></div><div id="sv_e"></div><button id="sv_r" class="b">ОБНОВИТЬ</button><button id="sv_b" class="b">НАЗАД</button></div>
-<div id="pmenu" class="s hid"><h2>ИГРАТЬ</h2><div id="pl_info" style="max-width:80vw;opacity:.9"></div><button id="pl_go" class="b">▶ НАЧАТЬ ИГРУ</button><button id="pl_md" class="b">🎮 РЕЖИМЫ</button><button id="pl_df" class="b">🎚 СЛОЖНОСТЬ</button><button id="pl_bk" class="b">НАЗАД</button></div>
+<div id="pmenu" class="s hid"><h2>ИГРАТЬ</h2><div id="pl_info" style="max-width:80vw;opacity:.9"></div><button id="pl_go" class="b">▶ НАЧАТЬ ИГРУ</button><button id="pl_md" class="b">🎮 РЕЖИМЫ</button><button id="pl_df" class="b">🎚 СЛОЖНОСТЬ</button><button id="pl_br" class="b">💡 ВЕСЬ СВЕТ</button><button id="pl_bk" class="b">НАЗАД</button></div>
 <div id="modes" class="s hid"><h2>🎮 РЕЖИМЫ</h2><button id="md_cl" class="b">🏠 КЛАССИКА</button><div class="md">Ты — игрок. Найди ключи, открой сейф и сбеги от Гренни.</div><button id="md_gr" class="b">🔒 ИГРОК ЗА БАБКУ</button><div class="md">Ты — Гренни, а вместо игрока — ИИ. Он ищет ключи, открывает двери и прячется. Поймай его до рассвета!</div><div id="md_m" style="max-width:80vw;color:#e0b050"></div><button id="md_bk" class="b">НАЗАД</button></div>
 <div id="dscr" class="s hid"><h2>🎚 СЛОЖНОСТЬ</h2><div id="df"></div><button id="df_bk" class="b">НАЗАД</button></div>
 <div id="newsp" class="s hid"><h2>📰 НОВОСТИ</h2><div id="nl"></div><button id="nw_bk" class="b">НАЗАД</button></div>
@@ -98,7 +98,7 @@ label{display:block;width:min(70vw,320px)}input[type=range]{width:100%}
 <script>
 const $=i=>document.getElementById(i),V=THREE.Vector3,PI=Math.PI,touch='ontouchstart'in window||navigator.maxTouchPoints>0;
 if(touch)document.body.classList.add('t');
-let st='menu',vol=.7,sens=1,pr=Math.min(devicePixelRatio||1,touch?1.25:1.75),cv='',back='menu',mt,AC,MG,yaw=PI,pit=0,py=1.6,vy=0,jmp=0,jx=0,jy=0,jr=false,bob=0,dist=0,cur=null,hT='',et=0,ep,oa=0,md=0;
+let DG,st='menu',vol=.7,sens=1,pr=Math.min(devicePixelRatio||1,touch?1.25:1.75),cv='',back='menu',mt,AC,MG,yaw=PI,pit=0,py=1.6,vy=0,jmp=0,jx=0,jy=0,jr=false,bob=0,dist=0,cur=null,hT='',et=0,ep,oa=0,md=0;
 const R=new THREE.WebGLRenderer({canvas:$('c'),antialias:!touch});
 R.setPixelRatio(pr);R.shadowMap.enabled=true;R.shadowMap.type=THREE.PCFSoftShadowMap;
 const scene=new THREE.Scene(),cam=new THREE.PerspectiveCamera(72,1,.1,160),P=cam.position,fwd=new V(),tv=new V(),K={};
@@ -220,8 +220,8 @@ function env(k){moon.intensity=k*1.2;amb.intensity=(window.ONL?.75:.12)+k*(windo
 const T=(f,d,ty='sine',v=.1,g=0,dl=0)=>{if(!AC)return;const t=AC.currentTime+dl,o=AC.createOscillator(),a=AC.createGain();o.type=ty;o.frequency.setValueAtTime(f,t);if(g)o.frequency.exponentialRampToValueAtTime(g,t+d);a.gain.setValueAtTime(v,t);a.gain.exponentialRampToValueAtTime(.0001,t+d);o.connect(a);a.connect(MG);o.start(t);o.stop(t+d)},
 N=(d,v,f)=>{if(!AC)return;const n=AC.sampleRate*d|0,b=AC.createBuffer(1,n,AC.sampleRate),a=b.getChannelData(0);for(let i=0;i<n;i++)a[i]=(Math.random()*2-1)*(1-i/n);const s=AC.createBufferSource(),fi=AC.createBiquadFilter(),g=AC.createGain();s.buffer=b;fi.type='lowpass';fi.frequency.value=f;g.gain.value=v;s.connect(fi);fi.connect(g);g.connect(MG);s.start()},
 snd={step:()=>N(.12,.35,400+Math.random()*200),creak:()=>{T(140,.9,'sawtooth',.05,70);T(210,.9,'square',.02,90,.05)},take:()=>{T(660,.25,'sine',.15);T(990,.35,'sine',.12,0,.1)},lock:()=>{N(.08,.5,1200);T(90,.15,'square',.08)},unl:()=>{T(400,.1,'square',.08);T(600,.15,'square',.08,0,.1)}};
-function initA(){if(AC){AC.resume();return}AC=new(window.AudioContext||window.webkitAudioContext)();MG=AC.createGain();MG.gain.value=vol;MG.connect(AC.destination);
-[55,58.3,110.5].forEach((f,i)=>{const o=AC.createOscillator(),g=AC.createGain(),lf=AC.createOscillator(),lg=AC.createGain(),fi=AC.createBiquadFilter();o.type=i<2?'sawtooth':'sine';o.frequency.value=f;fi.type='lowpass';fi.frequency.value=220;g.gain.value=.06;lf.frequency.value=.07+i*.05;lg.gain.value=.04;lf.connect(lg);lg.connect(g.gain);lf.start();o.connect(fi);fi.connect(g);g.connect(MG);o.start()});
+function initA(){if(AC){AC.resume();return}AC=new(window.AudioContext||window.webkitAudioContext)();MG=AC.createGain();MG.gain.value=vol;MG.connect(AC.destination);DG=AC.createGain();DG.connect(MG);
+[55,58.3,110.5].forEach((f,i)=>{const o=AC.createOscillator(),g=AC.createGain(),lf=AC.createOscillator(),lg=AC.createGain(),fi=AC.createBiquadFilter();o.type=i<2?'sawtooth':'sine';o.frequency.value=f;fi.type='lowpass';fi.frequency.value=220;g.gain.value=.06;lf.frequency.value=.07+i*.05;lg.gain.value=.04;lf.connect(lg);lg.connect(g.gain);lf.start();o.connect(fi);fi.connect(g);g.connect(DG);o.start()});
 setInterval(()=>{if(st=='play'&&Math.random()<.5)T([233,247,311,370,466][Math.random()*5|0]*(Math.random()<.5?1:.5),4,'sine',.05)},4500)}
 /* интерфейс и логика */
 function renderInv(){$('inv').innerHTML=inv.map(i=>`<div class="i">${i.ic} ${i.n}</div>`).join('')}
@@ -484,7 +484,7 @@ for(let i=0;i<130&&!remP;i++){if(i%5==0)send(1);await new Promise(r=>setTimeout(
 if(remP){send(1);live();ok(net);return}
 net.leave();no('peer-unavailable')})}
 async function netJoin(code,host){
-try{NET.room=await mkNet(code,host)}catch(e){omsg(e=='peer-unavailable'?'❌ Сервер с таким кодом не найден. Хозяин должен быть в лобби, а у обоих должна быть версия «онлайн v15» (внизу меню справа)':e=='unavailable-id'?'❌ Код занят, попробуй ещё раз':e=='network'?'❌ Ошибка сети: ни один сервер связи не открылся. Попробуй другую сеть (Wi-Fi или мобильный) или VPN, отключи блокировщик рекламы':e=='lib'?'❌ Не загрузилась библиотека онлайна (нужен интернет, попробуй VPN)':e=='timeout'?'❌ Нет ответа от сервера за 20 сек (проверь код, интернет; лучше Wi-Fi у обоих; хозяин должен оставаться в лобби)':'❌ Ошибка подключения: '+e);return}
+try{NET.room=await mkNet(code,host)}catch(e){omsg(e=='peer-unavailable'?'❌ Сервер с таким кодом не найден. Хозяин должен быть в лобби, а у обоих должна быть версия «онлайн v16» (внизу меню справа)':e=='unavailable-id'?'❌ Код занят, попробуй ещё раз':e=='network'?'❌ Ошибка сети: ни один сервер связи не открылся. Попробуй другую сеть (Wi-Fi или мобильный) или VPN, отключи блокировщик рекламы':e=='lib'?'❌ Не загрузилась библиотека онлайна (нужен интернет, попробуй VPN)':e=='timeout'?'❌ Нет ответа от сервера за 20 сек (проверь код, интернет; лучше Wi-Fi у обоих; хозяин должен оставаться в лобби)':'❌ Ошибка подключения: '+e);return}
 NET.code=code;NET.host=host?1:0;NET.started=0;NET.rem=null;NET.on=0;NET.hist=[];NET.lastCi=0;
 NET.room.presence(host?{host:1,mode:NET.mode}:{host:0});NET.room.onPeers(onPeers);
 hide('onl');hide('srv');show('lob');lmsg('');lobUI();NET.rx=Date.now();wlOn()}
@@ -598,7 +598,7 @@ const _wake=wake;wake=function(){const was=g.st=='sleep',by=NET.wby||(cm>=DF.wak
 $('ba').addEventListener('click',()=>{if(NET.on&&NET.room){NET.rq=Date.now();NET.rn=NET.rq;NET.wk=0;NET.wb='';NET.room.presence({rq:NET.rq,wk:0,wb:''})}});
 
 /* ===== НОВОСТИ, МЕНЮ «ИГРАТЬ», РЕЖИМ «ИГРОК ЗА БАБКУ» ===== */
-const NEWS=[{t:'Здравствуйте игроки, приятно что вы тут). И в честь обновления, для вас я сделал промокод:<span class="pcp">vubu2up</span> удачной игры) Спасибо вани за тестера'},{t:'🆕 Обновление v12: в доме появились новые тайны. Новых концовок: 5, всего их теперь 9. Найди все! Подсказка: за первые 4 концовки дают планшет 📱 (на ПК — клавиша T)'},{t:'🆕 Обновление v13: новости теперь отдельной кнопкой слева вверху, экран больше ничего не закрывает 🙂'},{t:'🆕 Обновление v14: у концовок появились анимации, а в спальне — сейф. Ключ от него ищи там, куда обычно не заглядывают 👀'},{t:'🆕 Обновление v15: ключ от сейфа за телевизором теперь можно достать сразу, без открытых концовок 🔑'}];
+const NEWS=[{t:'Здравствуйте игроки, приятно что вы тут). И в честь обновления, для вас я сделал промокод:<span class="pcp">vubu2up</span> удачной игры) Спасибо вани за тестера'},{t:'🆕 Обновление v12: в доме появились новые тайны. Новых концовок: 5, всего их теперь 9. Найди все! Подсказка: за первые 4 концовки дают планшет 📱 (на ПК — клавиша T)'},{t:'🆕 Обновление v13: новости теперь отдельной кнопкой слева вверху, экран больше ничего не закрывает 🙂'},{t:'🆕 Обновление v14: у концовок появились анимации, а в спальне — сейф. Ключ от него ищи там, куда обычно не заглядывают 👀'},{t:'🆕 Обновление v15: ключ от сейфа за телевизором теперь можно достать сразу, без открытых концовок 🔑'},{t:'🆕 Обновление v16: 7 новых концовок (свет, ТВ, кот, внук, снотворное, сон, мастер), часы идут по секундам, кнопка «Весь свет» в меню ИГРАТЬ, предметы работают в онлайне в режиме «Вместе»'}];
 function newsUI(){const un=(+LS.get('pdd_nv')||0)<NEWS.length;$('news').textContent='📰 НОВОСТИ'+(un?' 🔴':'');$('nl').innerHTML=NEWS.slice().reverse().map(x=>'<div class="ni">'+x.t+'</div>').join('');$('nl').querySelectorAll('.pcp').forEach(e=>e.onclick=()=>{try{navigator.clipboard.writeText(e.textContent);msg('Промокод скопирован 📋')}catch(x){msg('Промокод: '+e.textContent)}})}
 $('news').onclick=()=>{hide('menu');LS.set('pdd_nv',NEWS.length);newsUI();show('newsp')};
 $('nw_bk').onclick=()=>{hide('newsp');show('menu');newsUI()};
@@ -754,9 +754,13 @@ addEventListener('keydown',e=>{if(e.key=='Enter'&&NET.room&&NET.on&&(st=='play'|
 setInterval(()=>{const v=NET.room&&(NET.on?(st!='menu'&&st!='load'):!$('lob').classList.contains('hid'));$('chb').classList.toggle('hid',!v);$('chl').style.display=v?'flex':'none';if(!v&&!$('chi').classList.contains('hid'))chatClose()},300);
 /* ===== v16: НОВЫЕ КОНЦОВКИ 10-16 ===== */
 let xBK=0,xTV=0,xCS=0,xPS=0,xM=0,xT=0,xD=0,xA=0,xP=null,xR=[],xDC=0,xCK=0;
-const xok=()=>!window.ONL&&!window.GMG&&st=='play',xrm=id=>{const i=inv.findIndex(o=>o.id==id);if(i>=0)inv.splice(i,1);renderInv()},
+const xok=()=>!window.GMG&&st=='play'&&(!window.ONL||NET.mode==3),xrm=id=>{const i=inv.findIndex(o=>o.id==id);if(i>=0)inv.splice(i,1);renderInv()},
 mkb=(c,w,h,d)=>{const m=new THREE.Mesh(bg,mc(c,.5,{emissive:c,emissiveIntensity:.5}));m.scale.set(w,h,d);return m},
 MALL=n=>{for(let i=1;i<16;i++)if(i!=n&&i!=8&&!ENDS.has(i))return 0;return 1};
+const xit=[];let xN=0,xSeen=0,xev=[];
+function mkx(x,y,z,id,name,ic,mesh){mesh.position.set(x,y,z);scene.add(mesh);xit.push(mesh);IT.push({p:mesh.position,r:2.4,l:()=>mesh.visible&&xok()?'Взять: '+name:null,f:()=>take(id,name,ic,mesh)})}
+function xapply(k){const h=!window.ONL||NET.host;if(k=='bk')xBK=50;else if(k=='tv'){xTV=1;tvm.emissiveIntensity=2.2}else if(k=='rm'){xTV=2;RM.position.set(2.5,.5,13.1);RM.visible=true;if(h)xs(1)}else if(k=='cs'){xCS=2;if(h)xs(3)}else if(k=='ps'){xPS=1;if(h)xs(2)}}
+function xact(k){xapply(k);if(window.ONL){xev.push([++xN,k]);if(xev.length>6)xev.shift()}}
 EN[10]=['🔦 Свет выключили','Ты вывернул предохранитель и ушёл в темноте. Гренни искала тебя на ощупь.'];
 EN[11]=['📺 Бабка залипла','Сериал оказался интереснее тебя. Гренни не заметила, как ты ушёл.'];
 EN[12]=['🐈 Кот-предатель','Кот получил консерву и увёл бабку за собой. Ты ушёл, а кот остался героем.'];
@@ -767,17 +771,17 @@ EN[16]=['🏆 МАСТЕР ПОБЕГА','ТИТРЫ\n\nГренни — сам�
 /* предметы и места */
 const RM=mkb(0x222222,.06,.02,.18);RM.position.set(13.6,.98,.5);scene.add(RM);
 IT.push({p:RM.position,r:2.4,l:()=>xok()&&RM.visible&&xTV<2?'Взять: Пульт':null,f:()=>{RM.visible=false;inv.push({id:'rc',n:'Пульт',ic:'📺'});renderInv();snd.take();msg('Найдено: Пульт')}});
-mkItem(9.8,.9,.5,'pl','Таблетки','💊',mkb(0xffffff,.05,.1,.05));
-mkItem(16.2,.98,.5,'cf','Консерва для кота','🥫',mkb(0xc0c0c0,.08,.06,.08));
+mkx(9.8,.9,.5,'pl','Таблетки','💊',mkb(0xffffff,.05,.1,.05));
+mkx(16.2,.98,.5,'cf','Консерва для кота','🥫',mkb(0xc0c0c0,.08,.06,.08));
 B(11,1.2,7.85,.6,.7,.08,mm,0);
-IT.push({p:new V(11,1.5,7.7),r:2.4,l:()=>xok()&&!xBK&&!has('fu')?'Вывернуть предохранитель 🔌':null,f:()=>{xBK=50;inv.push({id:'fu',n:'Предохранитель',ic:'🔌'});renderInv();snd.lock();msgL('Щёлк! Свет погас 🌑 Крадись к выходу, Гренни ничего не видит',4500)}});
-IT.push({p:new V(2.5,1.2,9),r:3,l:()=>xok()&&xTV==0&&has('rc')?'Включить телевизор 📺':null,f:()=>{xTV=1;tvm.emissiveIntensity=2.2;T(300,.3,'square',.05);T(500,.3,'square',.05,0,.15);msgL('Телевизор включён. Положи пульт на диван 🛋',3500)}});
-IT.push({p:new V(2.5,.9,12.8),r:2.8,l:()=>xok()&&xTV==1&&has('rc')?'Оставить пульт на диване':null,f:()=>{xrm('rc');RM.position.set(2.5,.5,13.1);RM.visible=true;xTV=2;xs(1);msgL('Гренни услышала сериал и идёт к дивану... Прячься! 📺',3500)}});
+IT.push({p:new V(11,1.5,7.7),r:2.4,l:()=>xok()&&!xBK&&!has('fu')?'Вывернуть предохранитель 🔌':null,f:()=>{xact('bk');inv.push({id:'fu',n:'Предохранитель',ic:'🔌'});renderInv();snd.lock();msgL('Щёлк! Свет погас 🌑 Крадись к выходу, Гренни ничего не видит',4500)}});
+IT.push({p:new V(2.5,1.2,9),r:3,l:()=>xok()&&xTV==0&&has('rc')?'Включить телевизор 📺':null,f:()=>{xact('tv');T(300,.3,'square',.05);T(500,.3,'square',.05,0,.15);msgL('Телевизор включён. Положи пульт на диван 🛋',3500)}});
+IT.push({p:new V(2.5,.9,12.8),r:2.8,l:()=>xok()&&xTV==1&&has('rc')?'Оставить пульт на диване':null,f:()=>{xrm('rc');xact('rm');msgL('Гренни услышала сериал и идёт к дивану... Прячься! 📺',3500)}});
 const CATM=new THREE.Group(),xC={x:10.5,z:9.5},cmt=mc(0xd08a3a,.9,{emissive:0x3a2008,emissiveIntensity:.6});
 gb(.16,.16,.4,cmt,0,.22,0,CATM);gb(.14,.14,.14,cmt,0,.3,.24,CATM);const ctl=gb(.04,.04,.3,cmt,0,.3,-.3,CATM);CATM.position.set(10.5,0,9.5);scene.add(CATM);
-IT.push({p:CATM.position,r:2.6,l:()=>xok()&&xCS==0?(has('cf')?'Накормить кота 🐈':'Кот смотрит голодными глазами 🐈'):null,f:()=>{if(!has('cf')){msg('Мяу... Кот хочет консерву 🥫 (поищи на кухне)');return}xrm('cf');xCS=2;xs(3);snd.take();msgL('Кот съел консерву и помчался по дому, Гренни за ним! 🐈💨',3500)}});
+IT.push({p:CATM.position,r:2.6,l:()=>xok()&&xCS==0?(has('cf')?'Накормить кота 🐈':'Кот смотрит голодными глазами 🐈'):null,f:()=>{if(!has('cf')){msg('Мяу... Кот хочет консерву 🥫 (поищи на кухне)');return}xrm('cf');xact('cs');snd.take();msgL('Кот съел консерву и помчался по дому, Гренни за ним! 🐈💨',3500)}});
 const CUP=new THREE.Mesh(new THREE.CylinderGeometry(.05,.04,.08,10),mc(0xf2f2f2,.4,{emissive:0x666666}));CUP.position.set(15.2,.83,3.9);scene.add(CUP);
-IT.push({p:CUP.position,r:2.4,l:()=>xok()&&xPS==0&&has('pl')?'Подмешать таблетки в чай 💊':null,f:()=>{xrm('pl');xPS=1;xs(2);snd.take();msgL('Гренни почуяла чай и идёт на кухню ☕ Спрячься!',3500)}});
+IT.push({p:CUP.position,r:2.4,l:()=>xok()&&xPS==0&&has('pl')?'Подмешать таблетки в чай 💊':null,f:()=>{xrm('pl');xact('ps');snd.take();msgL('Гренни почуяла чай и идёт на кухню ☕ Спрячься!',3500)}});
 /* поведение бабки в особых концовках */
 function xs(m){xM=m;xT=0;xD=0;xA=0;xP=null;g.st='patrol';G.rotation.x=0;if(m==3){xR=[5,...route(5,0)].map(i=>GN[i]);g.path=route(near(g.x,g.z),0)}}
 function xgo(tx,tz,nd,sp,dt){if(!xP)xP=route(near(g.x,g.z),nd);if(xP.length){const n=GN[xP[0]];gmove(n[0],n[1],sp,dt);if(Math.hypot(n[0]-g.x,n[1]-g.z)<.4)xP.shift();return 0}gmove(tx,tz,sp,dt);return Math.hypot(tx-g.x,tz-g.z)<.15}
@@ -796,7 +800,7 @@ window.XT2=()=>{if(cm>=60&&!xDC&&(st=='play'||st=='hide')){xDC=1;if(!window.ONL&
 {const _a=animTick;animTick=function(dt){_a(dt);if(xBK>0){if(st=='play'||st=='hide')xBK-=dt;PL.forEach(l=>l.intensity=0);amb.intensity=.03;fl.intensity=st=='hide'?0:.3;if(xBK<=0){xBK=0;env(0);PL.forEach(l=>l.intensity=.7);fl.intensity=st=='hide'?0:1.6;msg('Свет вернулся 💡')}}}}
 {const _s=sees;sees=function(){return xBK>0&&Math.hypot(P.x-g.x,P.z-g.z)>2.5?0:_s()}}
 {const _e=escape;escape=function(d){_e(d);if(exEnd==1)exEnd=xBK>0?10:xTV==3?11:xCS==3?12:xPS==3?14:1}}
-{const _r=reset;reset=function(){_r();const w=xBK>0;xBK=0;xTV=xCS=xPS=xM=xD=xA=xDC=xCK=0;if(w)PL.forEach(l=>l.intensity=window.ONL?1.7:.7);RM.position.set(13.6,.98,.5);RM.visible=true;tvm.emissiveIntensity=.8;xC.x=10.5;xC.z=9.5;CATM.position.set(10.5,0,9.5);gL.rotation.x=gR.rotation.x=0}}
+{const _r=reset;reset=function(){_r();const w=xBK>0;xBK=0;xTV=xCS=xPS=xM=xD=xA=xDC=xCK=0;if(w)PL.forEach(l=>l.intensity=window.ONL?1.7:.7);xit.forEach(m=>m.visible=true);xN=xSeen=0;xev=[];RM.position.set(13.6,.98,.5);RM.visible=true;tvm.emissiveIntensity=.8;xC.x=10.5;xC.z=9.5;CATM.position.set(10.5,0,9.5);gL.rotation.x=gR.rotation.x=0}}
 /* звонок внуку */
 const C112=CALL.slice(),C2=[{d:'Алло? Это Вася, внук Гренни. А кто это?',o:[['Я у вашей бабушки в гостях. Заберите её, она ночью бродит!',1],['Это пиццерия? Мне с грибами.',0],['Привет, Вася! Бабушке скучно, приезжай!',1]]},{d:'Опять она не спит! Где она сейчас?',o:[['Ходит по дому. Приезжай, а то я с ней не справлюсь.',1],['Спросите у кота.',0],['Ждёт тебя в гостиной с пирожками!',1]]},{d:'Еду! Заберу её «в гости» к себе. Не волнуйся.',o:[['Спасибо, Вася! Ты лучший внук!',1],['Не надо никого забирать!',0],['Жду. Только без сирены!',1]]}];
 {const _c=callStart;callStart=function(){xCK=0;CALL.splice(0,9,...C112);_c()}}
@@ -817,4 +821,14 @@ CIN[14]={dur:5.6,init(){P.set(13.3,1.5,5.7);yaw=lookY(13.3,5.7,15.5,4.4);pit=-.1
 step(t,dt){G.rotation.x=cl01((t-.8)/1.6)*1.1;if(t>.3&&!CN.m){CN.m=1;msgL('Гренни: «Какой вкусный чай... что-то в сон клонит»',2600)}ZZ.forEach((q,i)=>{if(t>2.8){q.visible=true;const h=((t-2.8)*.3+i*.35)%1;q.position.set(15.6+i*.15,1.1+h*.9,4.4);q.material.opacity=.8*(1-h)}})},done(){TEA.visible=false}};
 CIN[15]={dur:5,init(){P.set(2,.95,.9);yaw=0;pit=1.25;fl.intensity=.5;G.visible=true;G.rotation.set(-PI/2,0,0);G.position.set(8,.3,11.5);CN.m=0;msgL('Ты проснулся...',1500)},
 step(t,dt){const u=cl01((t-1.5)/2.2);pit=1.25*(1-u)-.1*u;P.y=.95+u*.6;yaw=Math.sin(t*.8)*.3*u;if(t>3&&!CN.m){CN.m=1;msgL('Дом тих. Гренни спит. Это был сон? 💭',2000)}}};
+/* ===== v16.1: онлайн-предметы, весь свет, тишина в меню ===== */
+{const _wo=worldOut;worldOut=function(){const o=_wo();o.xe=xev;o.xd=[xTV==3?1:0,xCS==3?1:0,xPS==3?1:0];if(NET.host&&xM==3)o.xc=[+xC.x.toFixed(2),+xC.z.toFixed(2),+CATM.rotation.y.toFixed(2)];return o}}
+{const _wi=worldIn;worldIn=function(r){_wi(r);if(!NET.rn||r.rn!==NET.rn)return;
+if(r.xe)for(const[n,k]of r.xe)if(n>xSeen){xSeen=n;xapply(k);msgL('Друг '+({bk:'выключил свет 🌑',tv:'включил телевизор 📺',rm:'оставил пульт на диване 🛋',cs:'накормил кота 🐈',ps:'подмешал таблетки в чай 💊'})[k],3000)}
+if(NET.mode==3&&!NET.host){if(r.xd){if(r.xd[0])xTV=3;if(r.xd[1])xCS=3;if(r.xd[2])xPS=3}if(r.xc){xC.x=r.xc[0];xC.z=r.xc[1];CATM.position.set(xC.x,0,xC.z);CATM.rotation.y=r.xc[2]}}}}
+let BRI=LS.get('pdd_br')=='1';const brT=()=>{$('pl_br').textContent='💡 ВЕСЬ СВЕТ: '+(BRI?'ВКЛ':'ВЫКЛ')};brT();
+$('pl_br').onclick=()=>{BRI=!BRI;LS.set('pdd_br',BRI?'1':'0');brT();if(!BRI)PL.forEach(l=>{l.distance=9;l.intensity=.7});env(.8)};
+{const _v=env;env=function(k){_v(k);if(BRI){amb.intensity=Math.max(amb.intensity,1.2);scene.fog.density=Math.min(scene.fog.density,.012);moon.intensity=Math.max(moon.intensity,.9)}}}
+{const _b=animTick;animTick=function(dt){_b(dt);if(BRI&&!(xBK>0))PL.forEach(l=>{l.distance=45;l.intensity=1.8});
+if(DG)DG.gain.value+=(('menu,load,pmenu,pause'.indexOf(st)<0?1:0)-DG.gain.value)*Math.min(1,dt*2.5)}}
 </script></body></html>
