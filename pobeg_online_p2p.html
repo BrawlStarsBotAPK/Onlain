@@ -527,18 +527,19 @@ const LT='pobegdom/list/'+code.toLowerCase(),WL=host?{topic:LT,payload:'',retain
 let my=host?{host:1}:{host:0},remP=null,remAt=0,hd=null,locked=null,coll=0,ls=0,seq=0,seen={},ints=[],cls=[],dead=0,lt=Date.now(),lp='',lastRc=0;
 const list=()=>[{kind:'viewer',isMe:true,presence:my},...(remP?[{kind:'viewer',isMe:false,presence:remP}]:[])];
 const emit=(l=[])=>hd&&hd({peers:list(),joined:[],left:l,updated:[]});
-const send=f=>{const n=Date.now();if(!f&&n-ls<100)return;const pj=JSON.stringify(my);if(!f&&pj===lp&&n-ls<1000)return;lp=pj;ls=n;const m='{"s":"'+sid+'","n":'+(++seq)+',"p":'+pj+'}';cls.forEach(c=>{if(c.connected)try{c.publish(mine,m)}catch(e){}})};
+/* частые обновления (движение) шлём только в 2 канала, а редкие события и пульс раз в секунду — во все: так телефон не тонет в дублях */
+const send=f=>{const n=Date.now();if(!f&&n-ls<120)return;const pj=JSON.stringify(my);if(!f&&pj===lp&&n-ls<1000)return;lp=pj;ls=n;const m='{"s":"'+sid+'","n":'+(++seq)+',"p":'+pj+'}',ok=cls.filter(c=>c.connected);(f?ok:ok.slice(0,2)).forEach(c=>{try{c.publish(mine,m)}catch(e){}})};
 const net={presence(p){for(const k in p){if(p[k]===null)delete my[k];else my[k]=p[k]}send(p&&(p.ch||p.go||p.rt||p.mode!=null));return Promise.resolve()},peers:list,links:()=>cls.filter(c=>c.connected).length+'/'+BR.length,
 onPeers(f){hd=f;setTimeout(()=>emit(),0);return()=>{}},leave(){if(dead)return Promise.resolve();dead=1;ints.forEach(f=>typeof f=='function'?f():clearInterval(f));document.removeEventListener('visibilitychange',vis);const b=JSON.stringify({s:sid,n:++seq,p:my,b:1});cls.forEach(c=>{try{if(c.connected){c.publish(mine,b);if(ann0)c.publish(LT,'',{retain:true})}c.end(false)}catch(e){}});return Promise.resolve()}};
 const conn=url=>new Promise(r=>{let d=0;const c=mqtt.connect(url,{connectTimeout:8000,reconnectPeriod:2000,keepalive:20,clean:true,will:WL}),f=v=>{if(!d){d=1;if(!v)try{c.end(true)}catch(e){}r(v?c:null)}};c.on('connect',()=>f(1));c.on('error',()=>f(0));c.on('close',()=>f(0));setTimeout(()=>f(0),9000)});
-const onMsg=(t,m)=>{let d;try{d=JSON.parse(m.toString())}catch(e){return}if(!d||!d.p)return;
+const onMsg=(t,m)=>{const str=m.toString(),q0=/^\{"s":"(\w+)","n":(\d+),/.exec(str);if(q0&&+q0[2]<=(seen[q0[1]]||0))return;let d;try{d=JSON.parse(str)}catch(e){return}if(!d||!d.p)return;
 if(d.n<=(seen[d.s]||0))return;seen[d.s]=d.n;
 if(host&&t==base+'h'&&d.s!==sid){coll=1;return}if(t!==theirs)return;
 if(host){if(locked&&locked!==d.s){if(Date.now()-remAt<4000)return;remP=null}locked=d.s}
 if(d.b){if(d.p&&d.p.rt){remP=d.p;remAt=Date.now();emit()}remP=null;if(host)locked=null;emit([{}]);return}
 remP=d.p;remAt=Date.now();emit()};
 const vis=()=>{if(!document.hidden&&!dead){remAt=lt=Date.now();send(1);if(host)ann()}};document.addEventListener('visibilitychange',vis);
-const ann=()=>{ann0=1;const m=my.go?'':JSON.stringify({c:code,m:my.mode||1,n:remP?2:1,t:Date.now()});cls.forEach(c=>{if(c.connected)try{c.publish(LT,m,{retain:true})}catch(e){}})};const live=()=>{if(host){ann();ints.push(mkTick(ann,4000))}ints.push(mkTick(()=>send(1),1000),mkTick(()=>{const n=Date.now(),late=n-lt>2500;lt=n;if(late){remAt=n;NET.rx=n;return}if(remP&&n-remAt>4500&&n-lastRc>12000){lastRc=n;cls.forEach(c=>{try{if(c.connected)c.reconnect()}catch(e){}})}if(remP&&n-remAt>30000){remP=null;locked=null;emit([{}])}},1000))};
+const ann=()=>{ann0=1;const m=my.go?'':JSON.stringify({c:code,m:my.mode||1,n:remP?2:1,t:Date.now()});cls.forEach(c=>{if(c.connected)try{c.publish(LT,m,{retain:true})}catch(e){}})};const live=()=>{if(host){ann();ints.push(mkTick(ann,4000))}ints.push(mkTick(()=>send(1),1000),mkTick(()=>{const n=Date.now(),late=n-lt>2500;lt=n;if(late){remAt=n;NET.rx=n;return}if(remP&&n-remAt>12000&&n-lastRc>25000){lastRc=n;cls.forEach(c=>{try{if(c.connected)c.reconnect()}catch(e){}})}if(remP&&n-remAt>60000){remP=null;locked=null;emit([{}])}},1000))};
 const att=c=>{c.on('message',onMsg);c.on('connect',()=>{send(1)});c.subscribe(host?[base+'h',base+'g']:theirs)};
 await new Promise(res=>{let pend=BR.length,t=0;const fin=()=>{clearTimeout(t);res()};BR.forEach(u=>conn(u).then(c=>{if(c){if(dead){try{c.end(true)}catch(e){}}else{cls.push(c);att(c)}if(!t)t=setTimeout(fin,1500)}if(--pend==0)fin()}))});
 if(!cls.length){dead=1;no('network');return}
